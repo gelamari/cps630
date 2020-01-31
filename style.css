@@ -1,0 +1,14 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+.col-sm-5 {
+	background-color: aliceblue;
+}
+.col-sm-7 {
+	background-color: aliceblue;
+}
+button {
+	margin: 5px;
+}
+
