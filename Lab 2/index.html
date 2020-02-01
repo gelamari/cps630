@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<!-- Required meta tags -->
+  <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -11,16 +11,16 @@
     <!-- Personal CSS -->
     <link rel="stylesheet" type="text/css" href="style.css">
 
-	<title>
-		Lab 2
-	</title>
+  <title>
+    Lab 2
+  </title>
 </head>
 <body>
 
 <div class="container">
-	<h1>Edit Art Work</h1>
+  <h1>Edit Art Work</h1>
   <!-- PHPPHPHPPHP -->
-  <form action="#" method="POST">
+  <form action="index.php" method="POST">
   <div class="row">
 
   <div class="col-sm-5">
@@ -48,7 +48,7 @@
   <div class="form-group">
     <label for="subject">Choose Subject:</label>
     <select class="form-control" id="subject" name="subject">
-      <optio value="Landscape">Landscape</option>
+      <option value="Landscape">Landscape</option>
       <option value="Portrait">Portrait</option>
     </select>
   </div>
@@ -65,58 +65,39 @@
   </div>
   </div>
   <div class="col-sm-7">
-  	<h5>Type:</h5> 
+    <h5>Type:</h5> 
    <div class="form-check">
- 	 <input class="form-check-input" type="radio" name="type" id="Painting" value="painting" checked>
-  	 <label class="form-check-label" for="Painting">
-    	Painting
-  	 </label>
+   <input class="form-check-input" type="radio" name="type" id="Painting" value="Painting" checked>
+     <label class="form-check-label" for="Painting">
+      Painting
+     </label>
     </div>
 
-	<div class="form-check">
-  		<input class="form-check-input" type="radio" name="type" id="Sculpture" value="sculpture">
-  		<label class="form-check-label" for="Sculpture">
-   			  Sculpture
- 		</label>
+  <div class="form-check">
+      <input class="form-check-input" type="radio" name="type" id="Sculpture" value="Sculpture">
+      <label class="form-check-label" for="Sculpture">
+          Sculpture
+    </label>
    </div>
    
-   	<h5>Creative Commons Specifications</h5>
-  	
-  	<div class="form-check">
-  		<input class="form-check-input" type="checkbox" value="commercial" id="commercial">
-  		<label class="form-check-label" for="commercial">
-  			Commercial
-  		</label>
-	</div>
-	
-	<div class="form-check">
-  		<input class="form-check-input" type="checkbox" value="noncom" id="noncom">
-  		<label class="form-check-label" for="noncom">
-    		Non-commercial
-  		</label>
-	</div>
-	<div class="form-check">
-  		<input class="form-check-input" type="checkbox" value="deriv" id="derivative">
-  		<label class="form-check-label" for="derivative">
-    		Derivative Work
-  		</label>
-	</div>
-	<div class="form-check">
-  		<input class="form-check-input" type="checkbox" value="nonderiv" id="nonderivative">
-  		<label class="form-check-label" for="nonderivative">
-    		Non-Derivative Work
-  		</label>
-	</div>
-	
+    <h5>Creative Commons Specifications</h5>
+
+    
+    <input type='checkbox' name='ccs[]' value='Commercial'> Commercial<br>
+    <input type='checkbox' name='ccs[]' value='Non-commercial'> Non-commercial<br>
+    <input type='checkbox' name='ccs[]' value='Derivative Work'> Derivative Work<br>
+    <input type='checkbox' name='ccs[]' value='Non-Derivative Work'> Non-Derivative Work<br>
+   
+  
 </div>
-  <button type="submit" class="btn btn-success" value="submit">Submit</button>
+  <button type="submit" class="btn btn-success" value="submit" name="submit" >Submit</button>
   <button class="btn btn-danger" type="reset" value="Reset">Clear Form</button>
 
 </div>
 </form>
 
 </div>
-f
+
 </body>
 
 </html>
