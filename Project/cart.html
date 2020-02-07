@@ -1,0 +1,78 @@
+<html>
+<head>
+    <link rel="stylesheet" type="text/css" href="cart.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <div class="grid-two pd-10">
+        <div id="plans">
+            <!-- This list will be dynamic through PHP  -->
+            <!-- for all plans -->
+                <div class="plan">
+                    <h2>Plan [php plan num]</h2>
+                    <!-- php attributes -->
+                        <p>Start Date:</p>
+                        <p>Duration:</p>
+                        <p>Air Fare:</p>
+                        <p>Cruse Fare:</p>
+                        <p>Tour Number:</p>
+                        <p>Price in Total:</p>
+                    <!--/php attributes  -->
+                </div>
+            <!--/for all plans -->
+        </div>
+        <div class="pd-10">  
+            <!-- if !purchased -->
+            <form>
+                <div class="grid-two-unbalanced align-right">
+                    <p>Number of Travelers:</p>
+                    <input class="input-field num" type="number" id="planSelect" min="1"  max="100" default="1"/>
+                </div>
+                <div id="numOfTravelers">
+                    <div id="traveler0" class="traveler-age grid-two-unbalanced align-right">
+                        <p>Traveler 1 Age: </p>
+                        <input type="text" class="traveler-age"/>
+                    </div>
+                </div>
+            </form>
+            <!-- /if !purchased -->
+
+            <div class="invoices">
+                
+            </div>
+        </div>
+    </div>
+    <div class="center pd-10">
+        map 
+        <!-- php plan.selected.map? see how this works -->
+    </div>
+</body>
+
+</html>
+
+<script>
+    $(document).ready(function () {
+        $('#planSelect').val('1');
+        $('#planSelect').bind('input', function() { 
+            var numOfTravelers = $(this).val();
+            $('#numOfTravelers').empty();
+            for (i = 0; i < numOfTravelers; i++) {
+                // probably better way to check but will do for now
+                if (numOfTravelers < 101) {
+                    $('#numOfTravelers').append('<div id="traveler' + i + '" class="traveler-age grid-two-unbalanced align-right">')
+                    $('#traveler' + i).append('<p>Traveler ' + (i + 1) + ' Age: </p>')
+                    $('#traveler' + i).append('<input type="text" class="traveler-age"/>')
+                    $('#numOfTravelers').append('</div>')
+                }
+            }
+        });
+    });
+    // probably need a script to send the form data? rest call through php im assuming...
+</script>
