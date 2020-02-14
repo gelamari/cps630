@@ -6,7 +6,7 @@
 
     try {
         // Create connection
-        $conn = new PDO('mysql:host=' + $servername + 'dbname=' + $dbname, $username, $password);
+        $conn = new mysqli($servername, $username, $password, $dbname);
         // Check connection
         if ($conn->connect_error) {
             die("Connection failed: " . $conn->connect_error);
@@ -28,7 +28,8 @@
 
     }
     catch (PDOException $e) {
-        echo "<br><hr><strong>Error: </strong>";
-        die($e->getMessage());
+
+        echo $e->errorMessage(); 
+        echo 'error with database transaction';
     }
 ?> 
