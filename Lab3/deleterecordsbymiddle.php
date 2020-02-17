@@ -1,3 +1,5 @@
+
+
  <?php
     $servername = "localhost";
     $username = "root";
@@ -13,7 +15,7 @@
         }
 
         // sql to delete a record
-        $sql = "DELETE FROM StRec2 WHERE middlename='Mango'";
+        $sql = "DELETE FROM StRec WHERE middlename='Mango'";
 
         if ($conn->query($sql) === TRUE) {
             echo "Record deleted successfully";
@@ -26,5 +28,6 @@
     catch (PDOException $e) {
         echo 'error with database transaction';
     }
-
 ?> 
+
+

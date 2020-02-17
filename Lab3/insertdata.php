@@ -12,7 +12,7 @@
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $sql = "INSERT INTO StRec2 (firstname, lastname, middlename, email)
+        $sql = "INSERT INTO StRec (firstname, lastname, middlename, email)
         VALUES ('Johni', 'Smith', 'Steve', 'john@example.com'),  ('Kevin', 'Jones', 'Jeff', 'kevin@different.com'),  ('Orange', 'Lemon', 'Mango', 'orange@different.com'), ('Person', 'Two', 'Last', 'person2@example.com')";
 
         if ($conn->query($sql) === TRUE) {

@@ -1,8 +1,8 @@
 <?php
-    $servername = "localhost";
-    $username = "root";
-    $password = "";
-    $dbname = "testnew";
+    $servername = "us-cdbr-iron-east-04.cleardb.net";
+    $username = "b14d132ab0daf1";
+    $password = "4235e037";
+    $dbname = "heroku_fe29b274b3b479c";
 
     try {
         // Create connection
@@ -13,7 +13,7 @@
         }
 
         // sql to create table
-        $sql = "CREATE TABLE StRec (
+        $sql = "CREATE TABLE StRec2 (
         id INT(6) UNSIGNED AUTO_INCREMENT PRIMARY KEY,
         firstname VARCHAR(30) NOT NULL,
         lastname VARCHAR(30) NOT NULL,
