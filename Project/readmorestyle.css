@@ -45,36 +45,7 @@ height: 270px;
 
 }
 
-/*.materialboxed{
-  height: 270px;
-  width: 270px;
-}
-*/
-.flex-container {
-  /* We first create a flex layout context */
-  display: flex;
-  
-  /* Then we define the flow direction 
-     and if we allow the items to wrap 
-   * Remember this is the same as:
-   * flex-direction: row;
-   * flex-wrap: wrap;
-   */
-  flex-flow: row wrap;
-  
-  /* Then we define how is distributed the remaining space */
-  justify-content: space-around;
-  align-items:stretch;  
-}
-.LEFT {
-/*  height: 90vh;
-    background-color: lightblue;
-*/
-}
-.RIGHT {
-/*  background-color: lightpink;
-*//*  height: 90vh;
-*/}
+
 .card-panel {
   height: 25vh;
 
@@ -83,9 +54,14 @@ height: 270px;
 When Medium Tablet Size make CardPanel 4*270*/
 
 @media only screen and (max-width: 991px) {
-      .card-panel {
-        height: 1080px;
-      }
+     .card-panel {
+       height: 540px;
+     }
+     img { 
+      height: 540px;
+     }
+
+       
 
 }
 
@@ -94,7 +70,8 @@ When Medium Tablet Size make CardPanel 4*270*/
         height: 540px;
       }
 
+
 }
-li {
+.RIGHT li {
   margin-bottom: 10px;
 }
