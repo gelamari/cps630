@@ -1,36 +1,14 @@
-<!DOCTYPE html>
 <html>
-<head>
-	<title>Project Iteration I</title>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="homepage.css">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-	<script src="myscript.js"></script>
-</head>
+<?php 
+	$title = 'Homepage';
+	include 'assets/includes/header.php';
+?>
 <body>
-	<div class="page-header">
-		<h1><b>plan your travel</b></h1>
-	</div>
-	<nav class="navbar mr-auto navbar-expand-sm bg-dark navbar-dark">
-  		<ul class="navbar-nav mr-auto">
-    		<li class="nav-item active">
-      			<a class="nav-link" href="#">Home</a>
-    		</li>
-    		<li class="nav-item">
-      			<a class="nav-link" href="#">About</a>
-    		</li>
-    		<li class="nav-item">
-      			<a class="nav-link" href="#">Contact</a>
-    		</li>
-		</ul>
-		<ul class="navbar-nav ml-auto">
-    		<li class="nav-item">
-    			<a class="nav-link" href="#"><i class="fas fa-shopping-cart"></i></span> Cart</a>
-    		</li>
-  		</ul>
-	</nav>
+	<?php 
+		$page = 'home';
+		include 'assets/includes/nav.php';
+	?>
+	<div class="page-header"><h1><b>plan your travel</b></h1></div>
 	<div>
 		<select name="continent" id="continent" class="continent">
 			<option>Select a Continent</option>
@@ -96,7 +74,7 @@
 		<div class="row h-50">
   			<div class="col-sm-12 h-100 d-table">
     			<div class="card text-center mx-auto" style="width: 43rem;">
-  					<img class="card-img-top" src="et.jpg" alt="Card image cap">
+  					<img class="card-img-top" src="assets/img/et.jpg" alt="Card image cap">
   					<div class="card-body">
     					<h5 class="card-title">Eiffel Tower</h5>
     					<p class="card-text"><em>Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France</em></p>
