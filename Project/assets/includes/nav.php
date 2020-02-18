@@ -1,5 +1,4 @@
 <?php 
-
 ?>
 
 <nav class="navbar mr-auto navbar-expand-sm bg-dark navbar-dark">
@@ -23,6 +22,5 @@
 
 
 <script>
-      console.log(<?php echo $page; ?>)
       $("#<?php echo $page; ?>").addClass('active');
 </script>

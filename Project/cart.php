@@ -1,5 +1,4 @@
 <html>
-
 <?php 
     $title = "Shopping Cart";
     include 'assets/includes/header.php';
