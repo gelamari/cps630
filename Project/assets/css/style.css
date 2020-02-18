@@ -1,0 +1,53 @@
+.grid-two {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    grid-gap: 5px;
+    /* border: 1px solid black; */
+}
+.grid-vert-two {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    margin: 0 auto;
+    grid-gap: 5px;
+    /* border: 1px solid black; */
+}
+.grid-two-unbalanced {
+    display: grid;
+    grid-template-columns: 3fr 1fr;
+    margin: 0 auto;
+    grid-gap: 2em;
+    /* border: 1px solid black; */
+}
+
+.align-right {
+    text-align: right;
+}
+.center {
+    margin: 0 auto;
+    text-align: center;
+}
+
+.contact-container {
+    margin-top: auto;
+    margin-bottom: auto;
+}
+.nick-image {
+    margin: 0 auto;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 250px;
+    height: 250px;
+    border-radius: 50%;
+    background-image: url("../img/et.jpg");
+    background-position: center;
+    background-size: cover;
+}
+
+.num {
+    max-width: 5em;
+}
+
+a:hover {
+    text-decoration: none !important;
+}

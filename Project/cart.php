@@ -1,17 +1,14 @@
 <html>
-<head>
-    <link rel="stylesheet" type="text/css" href="cart.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-
-
-    <title>Shopping Cart</title>
-</head>
+<?php 
+    $title = "Shopping Cart";
+    include 'assets/includes/header.php';
+?>
 <body>
-    <div class="grid-two pd-10">
+    <?php 
+    $page = 'cart';
+    include 'assets/includes/nav.php';
+    ?>
+    <div class="grid-two p-4">
         <div id="plans">
             <!-- This list will be dynamic through PHP  -->
             <!-- for all plans -->
@@ -28,7 +25,7 @@
                 </div>
             <!--/for all plans -->
         </div>
-        <div class="pd-10">  
+        <div class="p-4">  
             <!-- if !purchased -->
             <form>
                 <div class="grid-two-unbalanced align-right">
@@ -49,7 +46,7 @@
             </div>
         </div>
     </div>
-    <div class="center pd-10">
+    <div class="center p-4">
         map 
         <!-- php plan.selected.map? see how this works -->
     </div>
