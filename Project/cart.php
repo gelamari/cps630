@@ -8,7 +8,7 @@
     $page = 'cart';
     include 'assets/includes/nav.php';
     ?>
-    <div class="grid-two pd-10">
+    <div class="grid-two p-4">
         <div id="plans">
             <!-- This list will be dynamic through PHP  -->
             <!-- for all plans -->
@@ -25,7 +25,7 @@
                 </div>
             <!--/for all plans -->
         </div>
-        <div class="pd-10">  
+        <div class="p-4">  
             <!-- if !purchased -->
             <form>
                 <div class="grid-two-unbalanced align-right">
@@ -46,7 +46,7 @@
             </div>
         </div>
     </div>
-    <div class="center pd-10">
+    <div class="center p-4">
         map 
         <!-- php plan.selected.map? see how this works -->
     </div>

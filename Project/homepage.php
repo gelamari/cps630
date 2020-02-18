@@ -4,11 +4,11 @@
 	include 'assets/includes/header.php';
 ?>
 <body>
-	<div class="page-header"><h1><b>plan your travel</b></h1></div>
 	<?php 
 		$page = 'home';
 		include 'assets/includes/nav.php';
 	?>
+	<div class="page-header"><h1><b>plan your travel</b></h1></div>
 	<div>
 		<select name="continent" id="continent" class="continent">
 			<option>Select a Continent</option>

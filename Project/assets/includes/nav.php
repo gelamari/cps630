@@ -1,26 +1,32 @@
 <?php 
 ?>
 
-<nav class="navbar mr-auto navbar-expand-sm bg-dark navbar-dark">
-      <ul class="navbar-nav mr-auto">
-        <li id="home" class="nav-item">
-              <a class="nav-link" href="homepage.php">Home</a>
-        </li>
-        <li id="about" class="nav-item">
-              <a class="nav-link" href="#">About</a>
-        </li>
-        <li id="contact" class="nav-item">
-              <a class="nav-link" href="#">Contact</a>
-        </li>
-    </ul>
-    <ul class="navbar-nav ml-auto">
-        <li id="cart" class="nav-item">
-            <a class="nav-link" href="cart.php"><i class="fas fa-shopping-cart"></i></span> Cart</a>
-        </li>
+<div>
+<nav>
+    <div class="nav-wrapper bg-dark navbar-dark">
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+      <ul class="hide-on-med-and-down">
+            <li id="home"><a href="homepage.php">Home</a></li>
+            <li id="about"><a href="about.php">About</a></li>
+            <li id="contact"><a href="contact.php">Contact</a></li>
       </ul>
+      <ul class="right hide-on-med-and-down">
+            <li id="cart" class="rightnav-item"><a href="cart.php"><i class="fas fa-shopping-cart"></i></span> Cart</a></li>
+      </ul>
+    </div>
 </nav>
 
-
+  <ul class="sidenav" id="mobile-demo">
+      <li id="home"><a href="homepage.php">Home</a></li>
+      <li id="about"><a href="about.php">About</a></li>
+      <li id="contact"><a href="contact.php">Contact</a></li>
+      <li id="cart" class="rightnav-item"><a href="cart.php"></span> Cart</a></li>
+  </ul>
+</div>
 <script>
       $("#<?php echo $page; ?>").addClass('active');
+
+      $(document).ready(function(){
+            $('.sidenav').sidenav();
+      });
 </script>
