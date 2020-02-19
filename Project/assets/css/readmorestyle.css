@@ -48,7 +48,7 @@ height: 270px;
 
 .card-panel {
   height: 25vh;
-
+  overflow: auto;
 }
 /*When Large Laptop Size make CardPanel 2*270
 When Medium Tablet Size make CardPanel 4*270*/
@@ -74,4 +74,18 @@ When Medium Tablet Size make CardPanel 4*270*/
 }
 .RIGHT li {
   margin-bottom: 10px;
+}
+.reviewerName {
+
+}
+blockquote {
+    -webkit-font-smoothing: antialiased;
+   font-family: FGrotesk,Helvetica Neue,arial,sans-serif;
+   font-style: normal;
+   line-height: 2.2;
+   text-transform: uppercase;
+   letter-spacing: .17em;
+   color: var(--foreground-color);
+   font-size: 15px;
+
 }
