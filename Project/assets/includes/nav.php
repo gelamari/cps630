@@ -1,5 +1,5 @@
 <?php 
-?>
+?>  
 
 <div>
 <nav>
@@ -9,9 +9,9 @@
             <li id="home"><a href="homepage.php">Home</a></li>
             <li id="about"><a href="about.php">About</a></li>
             <li id="contact"><a href="contact.php">Contact</a></li>
-      </ul>
-      <ul class="right hide-on-med-and-down">
-            <li id="cart" class="rightnav-item"><a href="cart.php"><i class="fas fa-shopping-cart"></i></span> Cart</a></li>
+            <li class="right"><a href="cart.php"><i class="material-icons right">shopping_cart</i>Cart</a></li>
+      
+
       </ul>
     </div>
 </nav>
@@ -20,7 +20,7 @@
       <li id="home"><a href="homepage.php">Home</a></li>
       <li id="about"><a href="about.php">About</a></li>
       <li id="contact"><a href="contact.php">Contact</a></li>
-      <li id="cart" class="rightnav-item"><a href="cart.php"></span> Cart</a></li>
+      <li id="cart" class="rightnav-item"><a href="cart.php"></span>Cart</a></li>
   </ul>
 </div>
 <script>
