@@ -1,13 +1,14 @@
 <?php
 include 'test.php';
 $conn = OpenCon(); 
+
+// Gallery Left Panel
+$photos = "SELECT img_path FROM photos LIMIT 4"; 
+$res = $conn->query($photos);
+
 // Right Panel
 $details = "SELECT * FROM attractions WHERE title = 'Eiffel Tower'";
 $results = $conn->query($details);
-
-// Gallery Left Panel
-$photos = "SELECT img_path FROM photos"; 
-$res = $conn->query($photos);
 
 // Reviews Bottom Panel
 $reviews = "SELECT * FROM reviews";
@@ -33,6 +34,8 @@ $printreview = $conn->query($reviews);
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat|Rock+Salt&display=swap" rel="stylesheet">
     
     <!-- JavaScript -->
     <script type="text/javascript">
@@ -150,14 +153,14 @@ $printreview = $conn->query($reviews);
           "<h5 class=\"reviewerName\">". $row['name']. "</h5>".
           "<h6>";
           while($x <= $row['rating']) {
-               echo "<i class=\"material-icons small\">star</i>";
+               echo "<i class=\"material-icons tiny\">star</i>";
               $x++;
 
           } 
           if ($row['rating'] < 5){
             $x = $row['rating'];
           while ($x < 5){
-            echo "<i class=\"material-icons small\">star_border</i>";
+            echo "<i class=\"material-icons tiny\">star_border</i>";
             $x++;
           }
           }

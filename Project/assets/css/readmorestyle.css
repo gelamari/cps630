@@ -24,25 +24,16 @@
 }
 
 
-.gallery {
-/* border: 1px solid black;
- /*margin-right: 10px;*/
-}
 img {
-max-width: 100%;
-min-width: 100%;
-height: 270px;
-  object-fit: cover;
+width: 100%;
+height: 540px;
+object-fit: cover;
 }
 
-.photo {
-/*  overflow: hidden;
-*/
-/*  min-width: 25%;
-*/  min-height: 10px;
-  
-  /*height: 270px;*/
-
+#gallery  {
+  -webkit-box-shadow: 9px 12px 14px -1px rgba(166,158,166,0.68);
+-moz-box-shadow: 9px 12px 14px -1px rgba(166,158,166,0.68);
+box-shadow: 9px 12px 14px -1px rgba(166,158,166,0.68);
 }
 
 
@@ -72,11 +63,16 @@ When Medium Tablet Size make CardPanel 4*270*/
 
 
 }
+
 .RIGHT li {
   margin-bottom: 10px;
 }
 .reviewerName {
-
+  font-family: 'Merriweather';
+  font-size: 18px;
+ /* font-family: 'Rock Salt', ;
+font-family: 'Montserrat', ;
+font-family: 'Merriweather', ;*/
 }
 blockquote {
     -webkit-font-smoothing: antialiased;
@@ -84,8 +80,8 @@ blockquote {
    font-style: normal;
    line-height: 2.2;
    text-transform: uppercase;
-   letter-spacing: .17em;
+   letter-spacing: .10em;
    color: var(--foreground-color);
-   font-size: 15px;
+   font-size: 12px;
 
 }
