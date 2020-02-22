@@ -18,4 +18,35 @@ function CloseCon($conn)
 }
 
 
+if (isset($_POST["continent"])){
+    $continent = $_POST["continent"];
+
+	$conn = OpenCon(); 
+	$countriesArray = array();
+	$countries = $conn->query("SELECT DISTINCT country FROM attractions WHERE continent='".$continent."'");
+	if ($countries->num_rows > 0) {
+		// output data of each row
+		while($row = $countries->fetch_assoc()) {
+			array_push($countriesArray, $row["country"]);
+		}
+	}
+	CloseCon($conn);
+    echo implode("|", $countriesArray);
+}
+
+if (isset($_POST["country"])){
+    $country = $_POST["country"];
+
+	$conn = OpenCon(); 
+	$attractionsArray = array();
+	$attractions = $conn->query("SELECT DISTINCT title FROM attractions WHERE country='".$country."'");
+	if ($attractions->num_rows > 0) {
+		// output data of each row
+		while($row = $attractions->fetch_assoc()) {
+			array_push($attractionsArray, $row["title"]);
+		}
+	}
+	CloseCon($conn);
+	echo implode("|", $attractionsArray);
+}
 ?>

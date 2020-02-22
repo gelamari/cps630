@@ -44,6 +44,10 @@
     background-size: cover;
 }
 
+select {
+    display: unset !important;
+}
+
 .num {
     max-width: 5em;
 }
@@ -51,3 +55,4 @@
 a:hover {
     text-decoration: none !important;
 }
+

@@ -1,3 +1,11 @@
+<?php
+include 'test.php';
+$conn = OpenCon(); 
+$continents = $conn->query("SELECT DISTINCT continent FROM attractions");
+CloseCon($conn);
+?>
+
+
 <html>
 <?php 
 	$title = 'Homepage';
@@ -12,13 +20,24 @@
 	<div>
 		<select name="continent" id="continent" class="continent">
 			<option>Select a Continent</option>
-			<option value="af" data-target="af" id="af">Africa</option>
+			<?php
+				if ($continents->num_rows > 0) {
+					// output data of each row
+					while($row = $continents->fetch_assoc()) {
+						echo "<option value=".$row["continent"].">".$row["continent"]."</option>";
+					}
+				}
+			?>
+			<!-- <option value="af" data-target="af" id="af">Africa</option>
        		<option value="am" data-target="am" id="am">America</option>
        		<option value="as" data-target="as" id="as">Asia</option>
        		<option value="eu" data-target="eu" id="eu">Europe</option>
-       		<option value="oc" data-target="oc" id="oc">Oceania</option>
-       	</select>
-       	<div style="display:none" id="continent-af">
+       		<option value="oc" data-target="oc" id="oc">Oceania</option> -->
+		</select>
+		<select id="country"></select>
+		<select id="attraction"></select>
+		   
+       	<!-- <div style="display:none" id="continent-af">
        		<select name="af" id="af" class="af">
        			<option>Select a Country</option>
        			<option value="egypt" data-target="egypt" class="egypt">Egypt</option>
@@ -68,7 +87,7 @@
        	<br>
        	<select name="popular" id="popular" class="popular">
        		<option>Popular Places</option>
-       	</select>
+       	</select> -->
     </div><br>
 	<div class="container-fluid">
 		<div class="row h-50">
@@ -108,3 +127,51 @@
 	</div>
 </body>
 </html>
+
+
+<script>
+
+	$(document).ready(function () {
+		$("#continent").on('change', function() {
+			var request = $.ajax({
+				url: "test.php",
+				type: "POST",
+				data: { continent : $(this).val() }
+            });
+            request.done(function(msg) {
+				$("#country").empty();
+				var countries = msg.split("|");
+				for (i = 0; i < countries.length; ++i) {
+					var o = new Option(countries[i], countries[i]);
+					$(o).html(countries[i]);
+					$("#country").append(o);
+				}
+            });
+            request.fail(function(jqXHR, textStatus) {
+            alert( "Request failed: " + textStatus );
+            });
+
+		});
+
+		$("#country").on('change', function() {
+			var request = $.ajax({
+				url: "test.php",
+				type: "POST",
+				data: { country : $(this).val() }
+            });
+            request.done(function(msg) {
+				$("#attraction").empty();
+				var attraction = msg.split("|");
+				for (i = 0; i < attraction.length; ++i) {
+					var o = new Option(attraction[i], attraction[i]);
+					$(o).html(attraction[i]);
+					$("#attraction").append(o);
+				}
+            });
+            request.fail(function(jqXHR, textStatus) {
+            alert( "Request failed: " + textStatus );
+            });
+		});
+	});
+
+</script>
