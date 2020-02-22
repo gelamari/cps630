@@ -1,17 +1,17 @@
 <?php
 include 'test.php';
+$num = $_POST['num'];
 $conn = OpenCon(); 
-
-// Gallery Left Panel
-$photos = "SELECT img_path FROM photos LIMIT 4"; 
-$res = $conn->query($photos);
-
 // Right Panel
-$details = "SELECT * FROM attractions WHERE title = 'Eiffel Tower'";
+$details = "SELECT * FROM attractions WHERE a_id = ". $num;
 $results = $conn->query($details);
 
+// Gallery Left Panel
+$photos = "SELECT img_path FROM photos WHERE a_id =" . $num ." LIMIT 4"; 
+$res = $conn->query($photos);
+
 // Reviews Bottom Panel
-$reviews = "SELECT * FROM reviews";
+$reviews = "SELECT * FROM reviews WHERE a_id =" . $num;
 $printreview = $conn->query($reviews);
 
 
@@ -34,8 +34,6 @@ $printreview = $conn->query($reviews);
 
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css?family=Merriweather|Montserrat|Rock+Salt&display=swap" rel="stylesheet">
     
     <!-- JavaScript -->
     <script type="text/javascript">
@@ -91,15 +89,15 @@ $printreview = $conn->query($reviews);
 </div>
 </div>
 <div id="RIGHT" class="col s12 m12 l5 xl4 RIGHT">
-  <h3 class="galleryTitle">/Eiffel Tower </h3>
-  <div class="container">
-    <div class="row">
-   <div class="card-panel blue-grey darken-1">
-        <div class="card-content white-text">
-          <ul>
-            <?php
+ <?php
       if ($results->num_rows > 0){
        while ($row = $results->fetch_assoc()){
+       echo "<h3 class=\"galleryTitle\">/".$row['title'] . "</h3>
+           <div class=\"container\"> 
+    <div class=\"row\">
+   <div class=\"card-panel blue-grey darken-1\">
+        <div class=\"card-content white-text\">
+          <ul>";
           echo "
           <li><i class=\"material-icons medium\">date_range</i></li> 
           <li>Date of Creation: " .
@@ -153,19 +151,19 @@ $printreview = $conn->query($reviews);
           "<h5 class=\"reviewerName\">". $row['name']. "</h5>".
           "<h6>";
           while($x <= $row['rating']) {
-               echo "<i class=\"material-icons tiny\">star</i>";
+               echo "<i class=\"material-icons small\">star</i>";
               $x++;
 
           } 
           if ($row['rating'] < 5){
             $x = $row['rating'];
           while ($x < 5){
-            echo "<i class=\"material-icons tiny\">star_border</i>";
+            echo "<i class=\"material-icons small\">star_border</i>";
             $x++;
           }
           }
           echo"</h6>".
-          "<blockquote>". $row['review']."</blockquote>".
+          "<blockquote>". $row['review']. "<br />". $row['date_posted']."</blockquote>".
           "</div>";
 
          
