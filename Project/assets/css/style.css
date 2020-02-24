@@ -56,3 +56,10 @@ a:hover {
     text-decoration: none !important;
 }
 
+.plan {
+   max-width: 400px;
+}
+
+.inline {
+    display: inline;
+}

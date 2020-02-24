@@ -49,4 +49,42 @@ if (isset($_POST["country"])){
 	CloseCon($conn);
 	echo implode("|", $attractionsArray);
 }
+
+if (isset($_POST["plan_id"])){
+    $plan_id = $_POST["plan_id"];
+
+	$conn = OpenCon(); 
+	$plan = $conn->query("SELECT * FROM plans WHERE id='".$plan_id."'");
+    $plan_data = $plan->fetch_assoc();
+    if ($plan_data["purchased"]) {
+        $order = $conn->query("SELECT * FROM orders WHERE plan_id='".$plan_id."'");
+        $order_data = $order->fetch_assoc();
+        echo json_encode($order_data);
+    } else {
+        echo "|".$plan_data["total_price"];
+    }
+    CloseCon($conn);
+}
+
+if (isset($_POST["purchase"])) {
+    $purchase = $_POST['purchase'];
+    $plan_id = $_POST['plan_id'];
+    $num_travelers = $_POST['num_travelers'];
+    $ages = $_POST['ages'];
+    $total = $_POST['total'];
+
+    $conn = OpenCon(); 
+	$plan = $conn->query("UPDATE plans SET purchased = 1 WHERE id=$plan_id");
+
+    $sql = "INSERT INTO orders (plan_id, num_travelers, ages, total)
+    VALUES ($plan_id, $num_travelers, \"$ages\", $total)";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "New record(s) created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
+    CloseCon($conn);
+}
+
 ?>

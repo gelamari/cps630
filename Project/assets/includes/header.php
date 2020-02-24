@@ -1,6 +1,6 @@
 <head>
     <title><?php echo $title; ?></title>
-    <link rel="stylesheet" type="text/css" href="assets/css/homepage.css">
+
     <link rel="stylesheet" type="text/css" href="assets/css/style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
