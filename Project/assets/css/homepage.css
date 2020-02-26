@@ -1,0 +1,11 @@
+body {
+	background-color: white;
+	/*font-family: arial;*/
+	
+}
+#continent-af, #continent-am, #continent-as, #continent-eu, #continent-oc {
+	margin-left: 50px;
+}
+#af-egypt, #am-usa, #eu-france {
+	margin-left: 50px;
+}
