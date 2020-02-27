@@ -18,6 +18,35 @@
       			</div> -->
       			<div class="card-stacked">
         			<div class="card-content">
+        				<ul class="collection" style="border: none;">
+    <li class="collection-item avatar">
+      <img src="assets/img/dog.png" class="circle">
+      <span class="title">Nicholas DeSantos</span>
+      <p><ul>
+        <li>• Created the Shopping Cart page</li>
+        <li>• Implemented search bar</li>
+        <li>• Managed project</li>
+      </ul></p>
+    </li>
+    <li class="collection-item avatar">
+      <img src="assets/img/dog1.png" class="circle">
+      <span class="title">Angela Gavin</span>
+      <p><ul>
+            <li>• Created the Read More page</li>
+            <li>• Managed the database</li>
+            <li>• Wrote report</li>
+      </ul></p>
+    </li>
+    <li class="collection-item avatar">
+      <img src="assets/img/dog2.png" class="circle">
+      <span class="title">Alison Der</span>
+      <p><ul>
+          <li>• Created the Home page</li>
+          <li>• Styled whole website with css</li>
+      </ul></p>
+    </li>
+  </ul>
+        				<!--<img src="assets/img/dog.png" style="width: 100px">
           				<h5>Nicholas DeSantos</h5>
           				<ul>
           					<li>• Created the Shopping Cart page</li>
@@ -32,10 +61,12 @@
           				</ul>
           				</p>
           				<h5>Alison Der</h5>
-          				<p>Created the Home page and styled whole website with css.
-          				</p>
+          				<ul>
+          					<li>• Created the Home page</li>
+          					<li>• Styled whole website with css</li>
+          				</ul>
         			</div>
-        			<!-- <div class="card-action">
+        			<div class="card-action">
           				<a href="#">This is a link</a>
         			</div> -->
       			</div>

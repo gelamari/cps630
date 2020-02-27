@@ -3,6 +3,18 @@ body {
 	/*font-family: arial;*/
 	
 }
+img.circle {
+	width: 52px !important;
+	height: 52px !important;
+}
+.title {
+	font-size: 17px !important;
+}
+
+/*ul {
+	font-size: 13px !important;
+}*/
+
 #continent-af, #continent-am, #continent-as, #continent-eu, #continent-oc {
 	margin-left: 50px;
 }
