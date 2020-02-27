@@ -87,4 +87,34 @@ if (isset($_POST["purchase"])) {
     CloseCon($conn);
 }
 
+
+if (isset($_POST["attraction"])) {
+    $attraction = strval($_POST["attraction"]);
+    // echo $attraction;
+
+	$conn = OpenCon(); 
+    $outputArray = array();
+
+    $outputId = $conn->query("SELECT a_id FROM attractions WHERE title=\"$attraction\"");
+    	if ($outputId->num_rows > 0) {
+		// output data of each row
+		while($row = $outputId->fetch_assoc()) {
+            array_push($outputArray, $row["a_id"]);
+            $outputNum =  $row["a_id"];
+		}
+    }
+    
+
+
+	$outputPhoto = $conn->query("SELECT img_path FROM photos WHERE a_id=$outputNum");
+	if ($outputPhoto->num_rows > 0) {
+		// output data of each row
+		while($row = $outputPhoto->fetch_assoc()) {
+			array_push($outputArray, $row["img_path"]);
+		}
+	}
+	CloseCon($conn);
+	echo implode("|", $outputArray);
+}
+
 ?>
