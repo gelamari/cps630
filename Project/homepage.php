@@ -140,6 +140,7 @@ CloseCon($conn);
             });
             request.done(function(msg) {
 				$("#country").empty();
+        $("#attraction").empty();
 				var countries = msg.split("|");
 				for (i = 0; i < countries.length; ++i) {
 					var o = new Option(countries[i], countries[i]);
