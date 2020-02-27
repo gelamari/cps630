@@ -140,8 +140,9 @@ CloseCon($conn);
             });
             request.done(function(msg) {
 				$("#country").empty();
-        $("#attraction").empty();
+       			$("#attraction").empty();
 				var countries = msg.split("|");
+				$("#country").append(new Option('Select a Country', 'default'));
 				for (i = 0; i < countries.length; ++i) {
 					var o = new Option(countries[i], countries[i]);
 					$(o).html(countries[i]);
@@ -163,6 +164,7 @@ CloseCon($conn);
             request.done(function(msg) {
 				$("#attraction").empty();
 				var attraction = msg.split("|");
+				$("#attraction").append(new Option('Select an Attraction', 'default'));
 				for (i = 0; i < attraction.length; ++i) {
 					var o = new Option(attraction[i], attraction[i]);
 					$(o).html(attraction[i]);
