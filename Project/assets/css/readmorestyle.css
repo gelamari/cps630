@@ -40,6 +40,7 @@ box-shadow: 9px 12px 14px -1px rgba(166,158,166,0.68);
 .card-panel {
   height: 25vh;
   overflow: auto;
+  margin-top: 0px;
 }
 /*When Large Laptop Size make CardPanel 2*270
 When Medium Tablet Size make CardPanel 4*270*/
@@ -84,4 +85,7 @@ blockquote {
    color: var(--foreground-color);
    font-size: 12px;
 
+}
+#attrTitle {
+  margin-left: 41px;
 }

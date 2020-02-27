@@ -1,7 +1,12 @@
 <?php
 include 'test.php';
-$num = $_POST['num'];
+$num = $_GET['num'];
 $conn = OpenCon(); 
+
+//Just Title 
+$one = "SELECT title FROM attractions WHERE a_id = ". $num;
+$onething = $conn->query($one);
+
 // Right Panel
 $details = "SELECT * FROM attractions WHERE a_id = ". $num;
 $results = $conn->query($details);
@@ -29,10 +34,14 @@ $printreview = $conn->query($reviews);
     ?>
   <!-- END OF HEADER  -->
 <div class="row">
+  <div class="container" id="attrTitle">
+ <h3 class="galleryTitle" > <?php $col = $onething->fetch_assoc(); echo "{$col['title']}"; $onething->free();
 
+?></h3>
+</div>
  <div class="col s12 m12 l7 xl8 LEFT">  
   <div class="container">
-          <h3 class="galleryTitle"> Gallery</h3>
+         
  <div id="gallery" class="row">
   <ul class="">
     
@@ -61,7 +70,7 @@ $printreview = $conn->query($reviews);
  <?php
       if ($results->num_rows > 0){
        while ($row = $results->fetch_assoc()){
-       echo "<h3 class=\"galleryTitle\">/".$row['title'] . "</h3>
+       echo "
            <div class=\"container\"> 
     <div class=\"row\">
    <div class=\"card-panel blue-grey darken-1\">
