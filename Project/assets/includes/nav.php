@@ -3,7 +3,7 @@
 
 <div>
 <nav>
-    <div class="nav-wrapper bg-dark navbar-dark">
+    <div class="nav-wrapper #263238 blue-grey darken-4">
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="hide-on-med-and-down">
             <li id="home"><a href="homepage.php">Home</a></li>
