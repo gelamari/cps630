@@ -16,8 +16,10 @@ CloseCon($conn);
 		$page = 'home';
 		include 'assets/includes/nav.php';
 	?>
-	<div class="page-header"><h1><b>plan your travel</b></h1></div>
-	<div>
+    <div class="container-fluid">
+	<div class="page-header">
+    <h1><b>Plan Your Travel</b></h1></div>
+
 		<select name="continent" id="continent" class="continent">
 			<option>Select a Continent</option>
 			<?php
@@ -33,14 +35,14 @@ CloseCon($conn);
 		<select id="attraction"></select>
 		   
     </div><br>
-	<div class="container-fluid">
+	<div class="container-fluids">
 		<div class="row h-50">
   			<div class="col-sm-12 h-100 d-table">
     			<div class="card text-center mx-auto" style="width: 43rem;">
   					<img id="attrImg" class="card-img-top" src="assets/img/et.jpg" alt="Card image cap">
   					<div class="card-body">
-    					<h5 id="attrName" class="card-title">Eiffel Tower</h5>
-    					<p class="card-text"><em id="attrDescription">Champ de Mars, 5 Avenue Anatole France, 75007 Paris, France</em></p>
+    					<h5 id="attrName" class="card-title"></h5>
+    					<p class="card-text"><em id="attrDescription"></em></p>
     					<a href="#" id="attrReadMore" class="btn btn-primary">Continue Reading</a>
   					</div>
 				</div><br>
@@ -76,6 +78,7 @@ CloseCon($conn);
 <script>
 
 	$(document).ready(function () {
+    $(".container-fluids").hide();
 		$("#continent").on('change', function() {
 			var request = $.ajax({
 				url: "test.php",
@@ -128,13 +131,14 @@ CloseCon($conn);
 				data: { attraction : $selfVal }
             });
             request.done(function(msg) {
+              console.log(msg);
 				var placeArray = msg.split("|");
 				var placeId = placeArray[0];
-				var placeImg = placeArray[1];
+				var placeImg = placeArray[5];
 				$("#attrImg").attr('src', placeImg);
 				$("#attrName").text($selfVal);
-				$("#attrReadMore").attr('href', '#' + placeId);
-				
+				$("#attrReadMore").attr('href', 'readmore.php?num=' + placeId);
+				$(".container-fluids").fadeIn(1000);
             });
             request.fail(function(jqXHR, textStatus) {
             alert( "Request failed: " + textStatus );

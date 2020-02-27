@@ -35,14 +35,14 @@ $printreview = $conn->query($reviews);
   <!-- END OF HEADER  -->
 <div class="row">
   <div class="container" id="attrTitle">
- <h3 class="galleryTitle" > <?php $col = $onething->fetch_assoc(); echo "{$col['title']}"; $onething->free();
+ <h3 class="galleryTitle fadeIn" > <?php $col = $onething->fetch_assoc(); echo "{$col['title']}"; $onething->free();
 
 ?></h3>
 </div>
  <div class="col s12 m12 l7 xl8 LEFT">  
   <div class="container">
          
- <div id="gallery" class="row">
+ <div id="gallery" class="row fadeIn">
   <ul class="">
     
     <?php
@@ -66,7 +66,7 @@ $printreview = $conn->query($reviews);
 </div>
 </div>
 </div>
-<div id="RIGHT" class="col s12 m12 l5 xl4 RIGHT">
+<div id="RIGHT" class="col s12 m12 l5 xl4 RIGHT fadeIn2">
  <?php
       if ($results->num_rows > 0){
        while ($row = $results->fetch_assoc()){
@@ -112,7 +112,7 @@ $printreview = $conn->query($reviews);
 </div>
 
 
-<div class="container">
+<div class="container fadeIn3">
 <div class="row">
   <h3 class="galleryTitle">Reviews</h3>
 

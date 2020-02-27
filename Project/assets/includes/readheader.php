@@ -21,7 +21,9 @@
       $(document).ready(function(){
           $('.materialboxed').materialbox();
           $("li").addClass("center-align");
-          $(".attrTitle").fadeIn(2000);
+          $(".fadeIn").hide().fadeIn(1000);   
+          $(".fadeIn2").hide().fadeIn(2000);   
+          $(".fadeIn3").hide().fadeIn(3000);   
          
       });
    
