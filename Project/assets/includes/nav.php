@@ -19,20 +19,24 @@
       <li id="home"><a href="homepage.php">Home</a></li>
       <li id="about"><a href="about.php">About</a></li>
       <li id="contact"><a href="contact.php">Contact</a></li>
+      <li id="search"><a class="modal-trigger" href="#modal1">Search</a></li>
       <li id="cart" class="rightnav-item"><a href="cart.php"></span>Cart</a></li>
   </ul>
 </div>
 
 <!-- Modal Structure -->
 <div id="modal1" class="modal bottom-sheet">
-  <div class="modal-content">
-    <h4>Search Database:</h4>
-    <input type="text" id="search"/>
-    <div id="searchOutput"></div>
-  </div>
-  <div class="modal-footer">
-    <a href="#!" id="searchButton" class="waves-effect waves-green btn-flat">Search</a>
-  </div>
+    <form id="search">
+    <div class="modal-content">
+        <h4>Search Database:</h4>
+        <label for="search1" >Term</label>
+        <input type="text" id="search1"/>
+        <div id="searchOutput"></div>
+    </div>
+    <div class="modal-footer hide">
+         <a type="submit" href="#!" id="searchButton" class="waves-effect waves-green btn-flat">Search</a>
+    </div>
+</form>
 </div>
 
 <script>
@@ -42,21 +46,20 @@
             $('.sidenav').sidenav();
             $('.modal').modal();
 
-            $('#searchButton').on('click', function(){
+            $('#search1').on('change', function(){
+                  $("#searchOutput").empty();
                   var request = $.ajax({
-				url: "test.php",
-				type: "POST",
-				data: { search : $(this).val() }
+                    url: "test.php",
+                    type: "POST",
+                    data: { search : $(this).val() }
                         });
                         request.done(function(msg) {
-                              $("#searchOutput").append(msg);
-
-
+                            $("#searchOutput").append(msg);
                         });
                         request.fail(function(jqXHR, textStatus) {
-                              alert( "Request failed: " + textStatus );
+                            alert( "Request failed: " + textStatus );
                         });
-                  });
-            });
+                    });
+             });
             
 </script>
