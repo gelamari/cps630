@@ -1,0 +1,32 @@
+CREATE TABLE `attractions` (
+ `a_id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+ `title` varchar(255) NOT NULL,
+ `date_of_creation` varchar(255) DEFAULT NULL,
+ `founder_name` varchar(255) DEFAULT NULL,
+ `dimensions` varchar(255) DEFAULT NULL,
+ `location` varchar(255) DEFAULT NULL,
+ `country` varchar(255) DEFAULT NULL,
+ `continent` varchar(255) DEFAULT NULL,
+ PRIMARY KEY (`a_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=42 DEFAULT CHARSET=utf8
+
+CREATE TABLE `photos` (
+ `p_id` int(11) UNSIGNED NOT NULL,
+ `img_path` varchar(255) NOT NULL,
+ `a_id` int(11) UNSIGNED NOT NULL,
+ PRIMARY KEY (`p_id`),
+ KEY `a_id` (`a_id`),
+ CONSTRAINT `photos_ibfk_1` FOREIGN KEY (`a_id`) REFERENCES `attractions` (`a_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8
+
+CREATE TABLE `reviews` (
+ `r_id` int(10) UNSIGNED NOT NULL,
+ `name` varchar(60) NOT NULL,
+ `rating` tinyint(1) unsigned NOT NULL,
+ `review` mediumtext NOT NULL,
+ `a_id` int(10) UNSIGNED DEFAULT NULL,
+ `date_posted` date DEFAULT NULL,
+ PRIMARY KEY (`r_id`),
+ KEY `a_id` (`a_id`),
+ CONSTRAINT `reviews_ibfk_1` FOREIGN KEY (`a_id`) REFERENCES `attractions` (`a_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8

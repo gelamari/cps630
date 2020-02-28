@@ -104,6 +104,8 @@
        $(document).ready(function(){
                  $('.collapsible').collapsible();
                  $('.collapsible-body li').css('list-style-type', 'circle');
+                   $('.collapsible-body li').css('font-size', '16px');
+                     $('.collapsible-header').css('font-size', '16px');
        });
    </script>
 <body>

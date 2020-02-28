@@ -1,12 +1,7 @@
 <?php
 include 'test.php';
-$num = $_GET['num'];
+$num = $_POST['num'];
 $conn = OpenCon(); 
-
-//Just Title 
-$one = "SELECT title FROM attractions WHERE a_id = ". $num;
-$onething = $conn->query($one);
-
 // Right Panel
 $details = "SELECT * FROM attractions WHERE a_id = ". $num;
 $results = $conn->query($details);
@@ -21,11 +16,42 @@ $printreview = $conn->query($reviews);
 
 
 ?>
-<html lang="en">
-<?php 
-  $title = 'Read More';
-  include 'assets/includes/readheader.php';
-?>
+<html>
+<head>
+	  <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- JQuery -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- MaterializeCSS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+    
+    <!-- JavaScript -->
+    <script type="text/javascript">
+    	$(document).ready(function(){
+	        $('.materialboxed').materialbox();
+          $("li").addClass("center-align");
+
+         
+    	});
+   
+    </script>
+
+    <!-- Personal CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/readmorestyle.css">
+
+     
+	<title>Read More Page</title>
+</head>
 <body>
   <!-- HEADER -->
    <?php 
@@ -34,15 +60,11 @@ $printreview = $conn->query($reviews);
     ?>
   <!-- END OF HEADER  -->
 <div class="row">
-  <div class="container" id="attrTitle">
- <h3 class="galleryTitle fadeIn" > <?php $col = $onething->fetch_assoc(); echo "{$col['title']}"; $onething->free();
 
-?></h3>
-</div>
- <div class="col s12 m12 l7 xl8 LEFT">  
+ <div class="col s12 m12 l7 xl8 LEFT">	
   <div class="container">
-         
- <div id="gallery" class="row fadeIn">
+          <h3 class="galleryTitle"> Gallery</h3>
+ <div id="gallery" class="row">
   <ul class="">
     
     <?php
@@ -66,11 +88,11 @@ $printreview = $conn->query($reviews);
 </div>
 </div>
 </div>
-<div id="RIGHT" class="col s12 m12 l5 xl4 RIGHT fadeIn2">
+<div id="RIGHT" class="col s12 m12 l5 xl4 RIGHT">
  <?php
       if ($results->num_rows > 0){
        while ($row = $results->fetch_assoc()){
-       echo "
+       echo "<h3 class=\"galleryTitle\">/".$row['title'] . "</h3>
            <div class=\"container\"> 
     <div class=\"row\">
    <div class=\"card-panel blue-grey darken-1\">
@@ -91,7 +113,7 @@ $printreview = $conn->query($reviews);
           "</li>
           <li><i class=\"material-icons medium\">map</i></li>
           <li>Location: " .
-          $row['location'] .
+          $row['dimensions'] .
           "</li>";
           
          
@@ -112,7 +134,7 @@ $printreview = $conn->query($reviews);
 </div>
 
 
-<div class="container fadeIn3">
+<div class="container">
 <div class="row">
   <h3 class="galleryTitle">Reviews</h3>
 
@@ -141,7 +163,7 @@ $printreview = $conn->query($reviews);
           }
           }
           echo"</h6>".
-          "<blockquote>". $row['review']. "<br />". $row['date_posted']."</blockquote>".
+          "<blockquote>". $row['review']."</blockquote>".
           "</div>";
 
          

@@ -4,11 +4,10 @@ $conn = OpenCon();
 $continents = $conn->query("SELECT DISTINCT continent FROM attractions");
 CloseCon($conn);
 ?>
-
-
 <html>
 <?php 
-	$title = 'Homepage';
+	// include 'assets/includes/protect-page.php';
+  $title = 'Homepage';
 	include 'assets/includes/header.php';
 ?>
 <body>
@@ -47,36 +46,21 @@ CloseCon($conn);
   					</div>
 				</div><br>
 
-<!-- 				<div class="card mx-auto" style="width:45rem; border: none;">
- -->
 <div class="container-fluid">
     <div class="card-title"><h5>Nearby Attractions</h5></div>   
 				 
      <div class="row">
           <div class="col s12 m4 l4 xl4">
-              <!--  <div class="card ">
-              <div class="card-image">
- -->
-             <div class="parallax-container">
+               <div class="parallax-container">
                <div class="parallax"> 
-            
-             
-                  <img id="nearbyImg" src="assets/img/et.jpg">
-              </div>
+                      <img id="nearbyImg" src="assets/img/et.jpg">
+               </div>
+               </div>
+             <div class="center nearbyBtn">
+                  <a href="#" class="btn btn-secondary center" id="nearby">This is a link</a>
+                  <p id="location" class="gelafont nearbySize"></p>
              </div>
-                 
-                <!-- <span class="card-title"></span></div> -->
-<!--               <div class="card-content">-->
-    <div class="center nearbyBtn">
-    <a href="#" class="btn btn-secondary center" id="nearby">This is a link</a>
-            <p id="location" class="gelafont nearbySize"></p>
-
-
-    </div>
-
-<!--         </div>
-              </div> -->
-        </div>
+           </div>
         <div class="col s12 m4 l4 xl4">
                <div class="card ">
               <div class="card-image">
