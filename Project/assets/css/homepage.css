@@ -13,6 +13,9 @@ img.circle {
 ul {
 	font-size: 13px !important;
 }
+p.smol {
+	font-size: 13px;
+}
 /*img.cont {
 	width: 300px !important;
 	height: 300px !important;
