@@ -1,6 +1,6 @@
 <?php
 /*
-   Represents a single travel photo
+   Represents a Review
  */
 class Reviews
 {  
@@ -23,6 +23,22 @@ class Reviews
        self::$inc++;
        $this->r_id =  self::$inc;
    }    
+
+
+   public function __get($property) {
+      if (property_exists($this, $property)) {
+        return $this->$property;
+      }
+    }
+  
+    public function __set($property, $value) {
+      if (property_exists($this, $property)) {
+        $this->$property = $value;
+      }
+  
+      return $this;
+    }
+
    // TOSTRING NEEDS MODIFICATION
     
    public function __toString() {

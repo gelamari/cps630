@@ -17,6 +17,21 @@ class Photos
        self::$inc++;
        $this->p_id = self::$inc;
    }    
+
+   public function __get($property) {
+      if (property_exists($this, $property)) {
+        return $this->$property;
+      }
+    }
+  
+    public function __set($property, $value) {
+      if (property_exists($this, $property)) {
+        $this->$property = $value;
+      }
+  
+      return $this;
+    }
+
     // TOSTRING NEEDS MODIFICATION
    public function __toString() {
       $tag = '<a href="readmore.php?id=' . $this->a_id . '" class="responsive-img">';

@@ -1,6 +1,11 @@
 <?php 
+/*
+###################
+ GENERAL FUNCTIONS
+###################
+*/
 
-
+// Open Database connection for the production server
 function OpenCon()
  {
  $dbhost = "us-cdbr-iron-east-04.cleardb.net:3306";
@@ -12,138 +17,13 @@ function OpenCon()
  return $conn;
  }
  
+// Closes the Database connection for the production server
 function CloseCon($conn)
  {
  $conn -> close();
 }
 
-
-if (isset($_POST["continent"])){
-    $continent = $_POST["continent"];
-
-	$conn = OpenCon(); 
-	$countriesArray = array();
-	$countries = $conn->query("SELECT DISTINCT country FROM attractions WHERE continent='".$continent."'");
-	if ($countries->num_rows > 0) {
-		// output data of each row
-		while($row = $countries->fetch_assoc()) {
-			array_push($countriesArray, $row["country"]);
-		}
-	}
-	CloseCon($conn);
-    echo implode("|", $countriesArray);
-}
-
-if (isset($_POST["country"])){
-    $country = $_POST["country"];
-
-	$conn = OpenCon(); 
-	$attractionsArray = array();
-	$attractions = $conn->query("SELECT DISTINCT title FROM attractions WHERE country='".$country."'");
-	if ($attractions->num_rows > 0) {
-		// output data of each row
-		while($row = $attractions->fetch_assoc()) {
-			array_push($attractionsArray, $row["title"]);
-		}
-	}
-	CloseCon($conn);
-	echo implode("|", $attractionsArray);
-}
-
-if (isset($_POST["plan_id"])){
-    $plan_id = $_POST["plan_id"];
-
-	$conn = OpenCon(); 
-	$plan = $conn->query("SELECT * FROM plans WHERE id='".$plan_id."'");
-    $plan_data = $plan->fetch_assoc();
-    if ($plan_data["purchased"]) {
-        $order = $conn->query("SELECT * FROM orders WHERE plan_id='".$plan_id."'");
-        $order_data = $order->fetch_assoc();
-        echo json_encode($order_data);
-    } else {
-        echo "|".$plan_data["total_price"];
-    }
-    CloseCon($conn);
-}
-
-if (isset($_POST["purchase"])) {
-    $purchase = $_POST['purchase'];
-    $plan_id = $_POST['plan_id'];
-    $num_travelers = $_POST['num_travelers'];
-    $ages = $_POST['ages'];
-    $total = $_POST['total'];
-
-    $conn = OpenCon(); 
-	$plan = $conn->query("UPDATE plans SET purchased = 1 WHERE id=$plan_id");
-
-    $sql = "INSERT INTO orders (plan_id, num_travelers, ages, total)
-    VALUES ($plan_id, $num_travelers, \"$ages\", $total)";
-
-    if ($conn->query($sql) === TRUE) {
-        echo "New record(s) created successfully";
-    } else {
-        echo "Error: " . $sql . "<br>" . $conn->error;
-    }
-    CloseCon($conn);
-}
-
-
-if (isset($_POST["attraction"])) {
-    $attraction = strval($_POST["attraction"]);
-    // echo $attraction;
-
-	$conn = OpenCon(); 
-    $outputArray = array();
-
-    $outputId = $conn->query("SELECT a_id FROM attractions WHERE title=\"$attraction\"");
-    	if ($outputId->num_rows > 0) {
-		// output data of each row
-		while($row = $outputId->fetch_assoc()) {
-			if ($row["a_id"] % 2 == 0) {
-				$nearby = $row["a_id"] - 1; 
-			}
-			else {
-				$nearby = $row["a_id"] + 1;
-
-			}
-			array_push($outputArray, $nearby);
-            array_push($outputArray, $row["a_id"]);
-            $outputNum =  $row["a_id"];
-            
-		}
-    }
-    
-
-
-	$outputPhoto = $conn->query("SELECT img_path FROM photos WHERE a_id=$outputNum");
-	if ($outputPhoto->num_rows > 0) {
-		// output data of each row
-		while($row = $outputPhoto->fetch_assoc()) {
-			array_push($outputArray, $row["img_path"]);
-		}
-	}
-	$nearbyPhoto = $conn->query("SELECT img_path FROM photos WHERE a_id=$nearby ORDER BY p_id desc LIMIT 1");
-	if($nearbyPhoto->num_rows > 0) {
-		   $row = $nearbyPhoto-> fetch_assoc();	
-		   array_push($outputArray, $row["img_path"]);
-		
-	}
-	$nearbyTitle = $conn->query("SELECT title, location, country FROM attractions WHERE a_id=$nearby");
-	if($nearbyTitle->num_rows > 0) {
-		   $row = $nearbyTitle-> fetch_assoc();	
-		   array_push($outputArray, $row["title"]);
-		    array_push($outputArray, $row["location"]);
-		     array_push($outputArray, $row["country"]);
-		
-	}
-
-	
-
-	CloseCon($conn);
-	echo implode("|", $outputArray);
-}
-
-
+// Search Function in the NAV
 if (isset($_POST["search"])) {
     $search = strval($_POST["search"]);
 
@@ -182,6 +62,143 @@ if (isset($_POST["search"])) {
 		} catch (Exception $e) {echo '';}
 		echo("</table>");
 	}
+    CloseCon($conn);
+}
+
+
+/*
+###################
+	  HOMEPAGE
+###################
+*/
+
+// Controller Action for continent dropdown
+if (isset($_POST["continent"])){
+    $continent = $_POST["continent"];
+
+	$conn = OpenCon(); 
+	$countriesArray = array();
+	$countries = $conn->query("SELECT DISTINCT country FROM attractions WHERE continent='".$continent."'");
+	if ($countries->num_rows > 0) {
+		// output data of each row
+		while($row = $countries->fetch_assoc()) {
+			array_push($countriesArray, $row["country"]);
+		}
+	}
+	CloseCon($conn);
+    echo implode("|", $countriesArray);
+}
+
+// Country selection on the home page
+if (isset($_POST["country"])){
+    $country = $_POST["country"];
+
+	$conn = OpenCon(); 
+	$attractionsArray = array();
+	$attractions = $conn->query("SELECT DISTINCT title FROM attractions WHERE country='".$country."'");
+	if ($attractions->num_rows > 0) {
+		// output data of each row
+		while($row = $attractions->fetch_assoc()) {
+			array_push($attractionsArray, $row["title"]);
+		}
+	}
+	CloseCon($conn);
+	echo implode("|", $attractionsArray);
+}
+
+// Attraction selection on the home page
+if (isset($_POST["attraction"])) {
+    $attraction = strval($_POST["attraction"]);
+
+	$conn = OpenCon(); 
+    $outputArray = array();
+
+	// Gets the information from the selected attraction, also finds the nearby attractions.
+    $outputId = $conn->query("SELECT a_id FROM attractions WHERE title=\"$attraction\"");
+    	if ($outputId->num_rows > 0) {
+		// output data of each row
+		while($row = $outputId->fetch_assoc()) {
+			if ($row["a_id"] % 2 == 0) {
+				$nearby = $row["a_id"] - 1; 
+			}
+			else {
+				$nearby = $row["a_id"] + 1;
+
+			}
+			array_push($outputArray, $nearby);
+            array_push($outputArray, $row["a_id"]);
+            $outputNum =  $row["a_id"];
+            
+		}
+    }
+	
+	
+	$outputPhoto = $conn->query("SELECT img_path FROM photos WHERE a_id=$outputNum");
+	if ($outputPhoto->num_rows > 0) {
+		// output data of each row
+		while($row = $outputPhoto->fetch_assoc()) {
+			array_push($outputArray, $row["img_path"]);
+		}
+	}
+	$nearbyPhoto = $conn->query("SELECT img_path FROM photos WHERE a_id=$nearby ORDER BY p_id desc LIMIT 1");
+	if($nearbyPhoto->num_rows > 0) {
+		   $row = $nearbyPhoto-> fetch_assoc();	
+		   array_push($outputArray, $row["img_path"]);
+		
+	}
+	$nearbyTitle = $conn->query("SELECT title, location, country FROM attractions WHERE a_id=$nearby");
+	if($nearbyTitle->num_rows > 0) {
+			$row = $nearbyTitle-> fetch_assoc();	
+			array_push($outputArray, $row["title"]);
+			array_push($outputArray, $row["location"]);
+			array_push($outputArray, $row["country"]);
+		
+	}
+
+	CloseCon($conn);
+	echo implode("|", $outputArray);
+}
+
+/*
+###################
+	  CART PAGE
+###################
+*/
+
+if (isset($_POST["plan_id"])){
+    $plan_id = $_POST["plan_id"];
+
+	$conn = OpenCon(); 
+	$plan = $conn->query("SELECT * FROM plans WHERE id='".$plan_id."'");
+    $plan_data = $plan->fetch_assoc();
+    if ($plan_data["purchased"]) {
+        $order = $conn->query("SELECT * FROM orders WHERE plan_id='".$plan_id."'");
+        $order_data = $order->fetch_assoc();
+        echo json_encode($order_data);
+    } else {
+        echo "|".$plan_data["total_price"];
+    }
+    CloseCon($conn);
+}
+
+if (isset($_POST["purchase"])) {
+    $purchase = $_POST['purchase'];
+    $plan_id = $_POST['plan_id'];
+    $num_travelers = $_POST['num_travelers'];
+    $ages = $_POST['ages'];
+    $total = $_POST['total'];
+
+    $conn = OpenCon(); 
+	$plan = $conn->query("UPDATE plans SET purchased = 1 WHERE id=$plan_id");
+
+    $sql = "INSERT INTO orders (plan_id, num_travelers, ages, total)
+    VALUES ($plan_id, $num_travelers, \"$ages\", $total)";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "New record(s) created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }
     CloseCon($conn);
 }
 

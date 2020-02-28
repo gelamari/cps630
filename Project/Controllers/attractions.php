@@ -1,6 +1,6 @@
 <?php
 /*
-   Represents a single travel photo
+   Represents an Attraction
  */
 class Attractions
 {  
@@ -27,7 +27,20 @@ class Attractions
        self::$inc++;
        $this->a_id =  self::$inc;
    }    
-   // TOSTRING NEEDS MODIFICATION
+
+   public function __get($property) {
+      if (property_exists($this, $property)) {
+        return $this->$property;
+      }
+    }
+  
+    public function __set($property, $value) {
+      if (property_exists($this, $property)) {
+        $this->$property = $value;
+      }
+  
+      return $this;
+    }
     
    public function __toString() {
       $tag = '<table><tr><td><a href="readmore.php?id=' . $this->a_id . '" class="img-responsive">';
