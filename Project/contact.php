@@ -23,10 +23,16 @@
                     </p>
                 </div>
                 <ul class="collapsible">
-                <li>
-                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Responsibilities</div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Responsibilities</div>
+                        <div class="collapsible-body">
+                            <ul>• Created the Cart page</ul>
+                            <ul>• Created the Search function</ul>
+                            <ul>• Helped with database (notably the plans & orders)</ul>
+                            <ul>• Helped with PHP logic throughout website<ul>
+                            <ul>• Helped with questions on report</ul>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -45,7 +51,13 @@
                 <ul class="collapsible">
                 <li>
                     <div class="collapsible-header"><i class="material-icons">filter_drama</i>Responsibilities</div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    <div class="collapsible-body">
+                        <ul>• Created the Readme pages</ul>
+                        <ul>• Created Database structure and data</ul>
+                        <ul>• Wrote the majority of the report</ul>
+                        <ul>• Helped with PHP logic on Home page<ul>
+                        <ul>• Helped with designs and CSS</ul>
+                    </div>
                 </li>
                 </ul>
             </div>
