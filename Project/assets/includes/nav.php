@@ -3,13 +3,13 @@
 
 <div>
 <nav>
-    <div class="nav-wrapper #283593 indigo darken-3">
+    <div class="nav-wrapper #1565c0 teal lighten-2">
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="hide-on-med-and-down">
             <li id="home"><a href="homepage.php">Home</a></li>
             <li id="about"><a href="about.php">About</a></li>
             <li id="contact" class=><a href="contact.php">Contact</a></li>
-            <li id="search"><a class="modal-trigger" href="#modal1">Search</a></li>
+            <li class="right" id="search"><a class="modal-trigger" href="#modal1" style="float: right">Search</a></li>
             <li class="right"><a href="cart.php"><i class="material-icons right">shopping_cart</i>Cart</a></li>
       </ul>
     </div>
