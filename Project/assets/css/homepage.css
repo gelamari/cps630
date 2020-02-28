@@ -16,10 +16,6 @@ ul {
 p.smol {
 	font-size: 13px;
 }
-/*img.cont {
-	width: 300px !important;
-	height: 300px !important;
-}*/
 #continent-af, #continent-am, #continent-as, #continent-eu, #continent-oc {
 	margin-left: 50px;
 }
@@ -48,7 +44,6 @@ p.smol {
    color: var(--foreground-color);
 
 }
-
 .nearbySize {
 	padding-top: 10px;
 	   font-size: 15px;

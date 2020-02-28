@@ -65,7 +65,11 @@
                 <ul class="collapsible">
                 <li>
                     <div class="collapsible-header"><i class="material-icons">filter_drama</i>Responsibilities</div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    <div class="collapsible-body"><span><ul><li>• Created the Home page</li>
+                    <li>• Designed About and Contact page</li>
+                    <li>• Added photos to database for Home page</li>
+                    <li>• Styled CSS throughout website</li>
+                    <li>• Finalized report</li></span></div>
                 </li>
                 </ul>
             </div>
