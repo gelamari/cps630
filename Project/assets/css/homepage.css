@@ -10,11 +10,13 @@ img.circle {
 .title {
 	font-size: 17px !important;
 }
-
-/*ul {
+ul {
 	font-size: 13px !important;
+}
+/*img.cont {
+	width: 300px !important;
+	height: 300px !important;
 }*/
-
 #continent-af, #continent-am, #continent-as, #continent-eu, #continent-oc {
 	margin-left: 50px;
 }

@@ -22,8 +22,10 @@
     <li class="collection-item avatar">
       <img src="assets/img/dog.png" class="circle">
       <span class="title">Nick De Santo</span>
-      <p><ul>
-        <li>• Created the Shopping Cart page</li>
+      <p>
+        Hi! Welcome to our travel website! In order for this website to be responsive and pretty, we used MaterializeCSS, Ajax, Javascript, and JQuery. 
+      <ul>
+        <li>• Created the Shopping Cart Page</li>
         <li>• Implemented search bar</li>
         <li>• Managed project</li>
       </ul></p>

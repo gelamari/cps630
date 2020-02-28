@@ -13,45 +13,42 @@
         <div class="col s12 m4 l4 xl4">
             <div class="card">
                 <div class="card-image">
-                    <img src="assets/img/dog.png" class="cont">
-                    <span class="card-title">Card Title</span>
+                    <img src="assets/img/dog.png" class="cont center">
                 </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
-                </div>
-            </div>
-        </div>
-        <div class="col s12 m4 l4 xl4">
-            <div class="card">
-                <div class="card-image">
-                    <img src="assets/img/dog.png" class="cont">
-                    <span class="card-title">Card Title</span>
-                </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
-                </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
+                <div class="card-content center">
+                    <span class="card-title">Nick De Santo</span>
+                    <p>
+                        Student ID: 500686917<br>
+                        Email: ndesanto@ryerson.ca
+                    </p>
                 </div>
             </div>
         </div>
         <div class="col s12 m4 l4 xl4">
             <div class="card">
                 <div class="card-image">
-                    <img src="assets/img/dog.png" class="cont">
-                    <span class="card-title">Card Title</span>
+                    <img src="assets/img/dog1.png" class="cont center">
                 </div>
-                <div class="card-content">
-                    <p>I am a very simple card. I am good at containing small bits of information.
-                    I am convenient because I require little markup to use effectively.</p>
+                <div class="card-content center">
+                    <span class="card-title">Angela Gavin</span>
+                    <p>
+                        Student ID: 500761490<br>
+                        Email: angela.gavin@ryerson.ca
+                    </p>
                 </div>
-                <div class="card-action">
-                    <a href="#">This is a link</a>
+            </div>
+        </div>
+        <div class="col s12 m4 l4 xl4">
+            <div class="card">
+                <div class="card-image">
+                    <img src="assets/img/dog2.png" class="cont center">
+                </div>
+                <div class="card-content center">
+                    <span class="card-title">Alison Der</span>
+                    <p>
+                        Student ID: 500815229<br>
+                        Email: ader@ryerson.ca
+                    </p>
                 </div>
             </div>
         </div>
