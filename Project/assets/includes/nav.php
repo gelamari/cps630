@@ -3,8 +3,7 @@
 
 <div>
 <nav>
-    <div class="nav-wrapper #1565c0 blue darken-3
-">
+    <div class="nav-wrapper #283593 indigo darken-3">
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="hide-on-med-and-down">
             <li id="home"><a href="homepage.php">Home</a></li>
