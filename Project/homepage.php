@@ -41,7 +41,7 @@ CloseCon($conn);
     			<div class="card text-center mx-auto" style="width: 43rem;">
   					<img id="attrImg" class="card-img-top" src="assets/img/et.jpg" alt="Card image cap">
   					<div class="card-body">
-    					<h5 id="attrName" class="card-title"></h5>
+    					<h5 id="attrName" class="gelafont card-title"></h5>
     					<p class="card-text"><em id="attrDescription"></em></p>
     					<a href="" id="attrReadMore" class="btn btn-primary">Continue Reading</a>
   					</div>
@@ -54,20 +54,35 @@ CloseCon($conn);
 				 
      <div class="row">
           <div class="col s12 m4 l4 xl4">
-               <div class="card ">
+              <!--  <div class="card ">
               <div class="card-image">
+ -->
+             <div class="parallax-container">
+               <div class="parallax"> 
+            
+             
                   <img id="nearbyImg" src="assets/img/et.jpg">
-                <span class="card-title"></span></div>
-              <div class="card-content">
-          <a href="#" class="btn btn-secondary" id="nearby">This is a link</a>
-        </div>
               </div>
+             </div>
+                 
+                <!-- <span class="card-title"></span></div> -->
+<!--               <div class="card-content">-->
+    <div class="center nearbyBtn">
+    <a href="#" class="btn btn-secondary center" id="nearby">This is a link</a>
+            <p id="location" class="gelafont nearbySize"></p>
+
+
+    </div>
+
+<!--         </div>
+              </div> -->
         </div>
         <div class="col s12 m4 l4 xl4">
                <div class="card ">
               <div class="card-image">
                   <img src="assets/img/et.jpg">
-                <span class="card-title"></span></div>
+                <span class="card-title"></span>
+              </div>
               <div class="card-content">
           <a href="#" class="btn white" style="box-shadow: 0 0px 0px 0 rgba(0,0,0,0.14), 0 0px 0px 0px rgba(0,0,0,0.12), 0 0px 0px 0 rgba(0,0,0,0.2);"></a>
         </div>
@@ -96,7 +111,10 @@ CloseCon($conn);
 <script>
 
 	$(document).ready(function () {
-    // $(".container-fluids").hide();
+        $('.parallax').parallax();
+        $('.materialboxed').materialbox();
+
+    $(".container-fluids").hide();
 		$("#continent").on('change', function() {
 			var request = $.ajax({
 				url: "test.php",
@@ -156,6 +174,8 @@ CloseCon($conn);
         var placeNearby = placeArray[0];
         var nearbyImg = placeArray[7];
         var nearbyTitle = placeArray[8];
+        var city = placeArray[9];
+        var country = placeArray[10];
 				$("#attrImg").attr('src', placeImg);
 				$("#attrName").text($selfVal);
 				$("#attrReadMore").attr('href', 'readmore.php?num=' + placeId);
@@ -163,6 +183,7 @@ CloseCon($conn);
         $("#nearbyImg").attr('src', nearbyImg);
         $(".container-fluids").fadeIn(1000);
         $("#nearby").text(nearbyTitle);
+        $("#location").text(city + ', ' + country);
 
 
 
