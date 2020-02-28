@@ -22,6 +22,12 @@
                         Email: ndesanto@ryerson.ca
                     </p>
                 </div>
+                <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Responsibilities</div>
+                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                </ul>
             </div>
         </div>
         <div class="col s12 m4 l4 xl4">
@@ -36,6 +42,12 @@
                         Email: angela.gavin@ryerson.ca
                     </p>
                 </div>
+                <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Responsibilities</div>
+                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                </ul>
             </div>
         </div>
         <div class="col s12 m4 l4 xl4">
@@ -50,73 +62,20 @@
                         Email: ader@ryerson.ca
                     </p>
                 </div>
+                <ul class="collapsible">
+                <li>
+                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Responsibilities</div>
+                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                </li>
+                </ul>
             </div>
         </div>
     </div>
 </div>
-    <!-- <div class="row"> 
-        <div class="col-sm grid-vert-two p-2">
-            <div class="nick-image"></div>
-            <div class="contact-container p-2">
-                <div class="grid-two">
-                    <p>Name: </p>
-                    <p>Nick De Santo</p>
-                </div>
-                <div class="grid-two">
-                    <p>Student ID: </p>
-                    <p>500686917</p>
-                </div>
-                <div class="grid-two">
-                    <p>Email: </p>
-                    <p>ndesanto@ryerson.ca</p>
-                </div>
-                <div class="grid-two">
-                    <p>Responsibilities: </p>
-                    <p>Shopping Cart, Refactoring, About/Contact Pages</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm grid-vert-two p-2">
-            <div class="nick-image"></div>
-            <div class="contact-container p-2">
-                <div class="grid-two">
-                    <p>Name: </p>
-                    <p>Nick De Santo</p>
-                </div>
-                <div class="grid-two">
-                    <p>Student ID: </p>
-                    <p>500686917</p>
-                </div>
-                <div class="grid-two">
-                    <p>Email: </p>
-                    <p>ndesanto@ryerson.ca</p>
-                </div>
-                <div class="grid-two">
-                    <p>Responsibilities: </p>
-                    <p>Shopping Cart, Refactoring, About/Contact Pages</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm grid-vert-two p-2">
-            <div class="nick-image"></div>
-            <div class="contact-container p-2">
-                <div class="grid-two">
-                    <p>Name: </p>
-                    <p>Nick De Santo</p>
-                </div>
-                <div class="grid-two">
-                    <p>Student ID: </p>
-                    <p>500686917</p>
-                </div>
-                <div class="grid-two">
-                    <p>Email: </p>
-                    <p>ndesanto@ryerson.ca</p>
-                </div>
-                <div class="grid-two">
-                    <p>Responsibilities: </p>
-                    <p>Shopping Cart, Refactoring, About/Contact Pages</p>
-                </div>
-            </div>
-        </div>
-    </div> -->
+   <script type="text/javascript">
+       
+       $(document).ready(function(){
+                 $('.collapsible').collapsible();
+       });
+   </script>
 <body>
