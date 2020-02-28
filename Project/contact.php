@@ -45,7 +45,14 @@
                 <ul class="collapsible">
                 <li>
                     <div class="collapsible-header"><i class="material-icons">filter_drama</i>Responsibilities</div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+                    <div class="collapsible-body">
+                    <ul>
+                        <li>Read More Page</li>
+                        <li>Link from Home Page to Read More Page</li>
+                        <li>Implement the Nearby Attractions (CSS and Linking to Appropriate Read More Page) of the Home Page</li>
+                        <li>Created Database Tables and Entires for Attractions, Photos and Reviews</li>
+                    </ul>
+                    </div>
                 </li>
                 </ul>
             </div>
@@ -76,6 +83,7 @@
        
        $(document).ready(function(){
                  $('.collapsible').collapsible();
+                 $('.collapsible-body li').css('list-style-type', 'circle');
        });
    </script>
 <body>
