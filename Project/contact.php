@@ -23,10 +23,16 @@
                     </p>
                 </div>
                 <ul class="collapsible">
-                <li>
-                    <div class="collapsible-header"><i class="material-icons">filter_drama</i>Responsibilities</div>
-                    <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-                </li>
+                    <li>
+                        <div class="collapsible-header"><i class="material-icons">filter_drama</i>Responsibilities</div>
+                        <div class="collapsible-body">
+                            <ul>• Created the Cart page</ul>
+                            <ul>• Created the Search function</ul>
+                            <ul>• Helped with database (notably the plans & orders)</ul>
+                            <ul>• Helped with PHP logic throughout website<ul>
+                            <ul>• Helped with questions on report</ul>
+                        </div>
+                    </li>
                 </ul>
             </div>
         </div>
@@ -49,10 +55,13 @@
                     <ul>
                         <li>Read More Page</li>
                         <li>Link from Home Page to Read More Page</li>
-                        <li>Implement the Nearby Attractions (CSS and Linking to Appropriate Read More Page) of the Home Page</li>
-                        <li>Created Database Tables and Entires for Attractions, Photos and Reviews</li>
+                        <li>Implement the Nearby Attractions (CSS and Linking to Appropriate Read More Page using PHP) of the Home Page</li>
+                        <li>Created Database Structure and Entries for Attractions, Photos and Reviews</li>
+                        <li>Technical Report Main Writer</li>
+                        <li>UI Design and Layout Website Editor</li>
+
                     </ul>
-                    </div>
+
                 </li>
                 </ul>
             </div>
@@ -76,8 +85,8 @@
                     <li>Created the Home page</li>
                     <li>Designed About and Contact page</li>
                     <li>Added photos to database for Home page</li>
-                    <li>Styled CSS throughout website</li>
-                    <li>Finalized Technical Report</li></span></div>
+                    <li>UI Design and Layout Website Editor</li>
+                    <li>Technical Report Editor</li></span></div>
                 </li>
                 </ul>
             </div>
