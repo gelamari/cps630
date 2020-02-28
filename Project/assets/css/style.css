@@ -64,3 +64,8 @@ a:hover {
 .inline {
     display: inline;
 }
+.team {
+    font-family: 'Dancing Script', FGrotesk,Helvetica Neue,arial,sans-serif ;
+    letter-spacing: .10em;
+
+}
