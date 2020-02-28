@@ -30,6 +30,7 @@
                                     echo "<p>Duration: ".$row["duration"]." days </p>";
                                     echo "<p>Air/Cruise Fare: ".$row["fare"]."</p>";
                                     echo "<p>Total Price: ".$row["total_price"]."</p>";
+                                    echo "<p> Description: ".$row["description"]."<p>";
                                 echo "</div>";
                             echo "</div>";
                         }
@@ -75,6 +76,7 @@
     $(document).ready(function () {
         var totalPrice = 0;
 
+        // When a plan is clicked on, GET the info
         $(".plan").on('click', function() {
             $("#vacationPlan").removeClass('hide');
             $("#purchaseButton").removeClass('hide');
@@ -110,7 +112,7 @@
             });
 		});
 
-
+        // when clicking on a plan, must get the info from the database.
         $('#planSelect').bind('input', function() { 
             var numOfTravelers = $(this).val();
             $('#numOfTravelers').empty();
@@ -126,7 +128,7 @@
             $("#totalPrice").html((totalPrice * numOfTravelers * 1.13).toFixed(2));
         });
 
-
+        // adds the plan to the orders table
         $("#purchaseButton").on('click', function() {
             var agesArray = [];
             var numTravelers = $("#planSelect").val();
@@ -154,12 +156,12 @@
         });
     });
 
+    // If already ordered, fill in the details from the order
     function fillTravellers(length, array) {
         $('#planSelect').val(length);
         $('#planSelect').prop('disabled', true);
         $('#numOfTravelers').empty();
         for (i = 0; i < length; i++) {
-                // probably better way to check but will do for now
                 if (length > 0) { 
                     $("#traveler0-input").val(array[0]);
                     $("#traveler0-input").prop('disabled', true);
@@ -173,7 +175,7 @@
                 }
             }
     }
-
+    // is the output json? true/false
     function isJson(str) {
         try {
             JSON.parse(str);
@@ -182,6 +184,4 @@
         }
         return true;
     }
-
-    // probably need a script to send the form data? rest call through php im assuming...
 </script>
