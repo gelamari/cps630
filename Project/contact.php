@@ -26,11 +26,13 @@
                     <li>
                         <div class="collapsible-header"><i class="material-icons">filter_drama</i>Responsibilities</div>
                         <div class="collapsible-body">
-                            <ul>• Created the Cart page</ul>
-                            <ul>• Created the Search function</ul>
-                            <ul>• Helped with database (notably the plans & orders)</ul>
-                            <ul>• Helped with PHP logic throughout website<ul>
-                            <ul>• Helped with questions on report</ul>
+                        <ul>
+                            <li>Created the Cart page</li>
+                            <li>Created the Search function</li>
+                            <li>Established 'Published' Database Server</li>
+                            <li>Created Database Structure and Entries for Travel Plans and Orders for Shopping Cart</li>
+                            <li>Main Backend Developer; created the PHP logic of the website</li>
+                            <li>Technical Report Editor</li>
                         </div>
                     </li>
                 </ul>
@@ -53,7 +55,7 @@
                     <div class="collapsible-header"><i class="material-icons">filter_drama</i>Responsibilities</div>
                     <div class="collapsible-body">
                     <ul>
-                        <li>Read More Page</li>
+                        <li>Created the Read More Page</li>
                         <li>Link from Home Page to Read More Page</li>
                         <li>Implement the Nearby Attractions (CSS and Linking to Appropriate Read More Page using PHP) of the Home Page</li>
                         <li>Created Database Structure and Entries for Attractions, Photos and Reviews</li>
@@ -61,7 +63,7 @@
                         <li>UI Design and Layout Website Editor</li>
 
                     </ul>
-
+                    </div>
                 </li>
                 </ul>
             </div>
@@ -81,12 +83,16 @@
                 <ul class="collapsible">
                 <li>
                     <div class="collapsible-header"><i class="material-icons">filter_drama</i>Responsibilities</div>
-                    <div class="collapsible-body"><span><ul>
-                    <li>Created the Home page</li>
-                    <li>Designed About and Contact page</li>
-                    <li>Added photos to database for Home page</li>
-                    <li>UI Design and Layout Website Editor</li>
-                    <li>Technical Report Editor</li></span></div>
+                    <div class="collapsible-body">
+                    <ul>
+                        <li>Created the Home Page</li>
+                        <li>Created the About Page</li>
+                        <li>Created the Contact page</li>
+                        <li>Added entries to Photos table of the Database</li>
+                        <li>UI Design and Layout Website Editor</li>
+                        <li>Technical Report Main Editor</li>
+                    </ul>
+                    </div>
                 </li>
                 </ul>
             </div>
