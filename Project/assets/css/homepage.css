@@ -23,3 +23,30 @@ ul {
 #af-egypt, #am-usa, #eu-france {
 	margin-left: 50px;
 }
+
+#nearbyImg {
+	object-fit: contain;
+}
+.parallax-container {
+	width: 100%;
+	height: 75%;
+}
+.nearbyBtn {
+	padding: 10px 0 10px 0 ;
+	box-shadow:  0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+}
+.gelafont{
+	  -webkit-font-smoothing: antialiased;
+   font-family: FGrotesk,Helvetica Neue,arial,sans-serif;
+   font-style: normal;
+   line-height: 1.1;
+   text-transform: uppercase;
+   letter-spacing: .10em;
+   color: var(--foreground-color);
+
+}
+
+.nearbySize {
+	padding-top: 10px;
+	   font-size: 15px;
+}
