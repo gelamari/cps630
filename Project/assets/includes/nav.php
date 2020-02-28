@@ -26,7 +26,7 @@
 
 <!-- Modal Structure -->
 <div id="modal1" class="modal bottom-sheet">
-    <form id="search">
+    <form id="search" onsubmit="return false">
     <div class="modal-content">
         <h4>Search Database:</h4>
         <label for="search1" >Term</label>
@@ -34,7 +34,7 @@
         <div id="searchOutput"></div>
     </div>
     <div class="modal-footer hide">
-         <a type="submit" href="#!" id="searchButton" class="waves-effect waves-green btn-flat">Search</a>
+         <button type="submit"><a type="submit" href="#!" id="searchButton" class="waves-effect waves-green btn-flat">Search</a></button>
     </div>
 </form>
 </div>
@@ -54,7 +54,7 @@
                     data: { search : $(this).val() }
                         });
                         request.done(function(msg) {
-                            $("#searchOutput").append(msg);
+                            $("#searchOutput").append(msg);   
                         });
                         request.fail(function(jqXHR, textStatus) {
                             alert( "Request failed: " + textStatus );
