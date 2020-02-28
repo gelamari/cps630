@@ -43,31 +43,49 @@ CloseCon($conn);
   					<div class="card-body">
     					<h5 id="attrName" class="card-title"></h5>
     					<p class="card-text"><em id="attrDescription"></em></p>
-    					<a href="#" id="attrReadMore" class="btn btn-primary">Continue Reading</a>
+    					<a href="" id="attrReadMore" class="btn btn-primary">Continue Reading</a>
   					</div>
 				</div><br>
-				<div class="card mx-auto" style="width:45rem; border: none;">
-					<div class="card-body">
-						<h5 class="card-title">Nearby Attractions</h5>
-						<div class="card-deck">
-  							<div class="card">
-    							<div class="card-body text-center">
-      								<p class="card-text">Some text inside the first card</p>
-    							</div>
-  							</div>
-  							<div class="card">
-    							<div class="card-body text-center">
-      								<p class="card-text">Some text inside the second card</p>
-    							</div>
-  							</div>
-  							<div class="card">
-    							<div class="card-body text-center">
-      								<p class="card-text">Some text inside the third card</p>
-    							</div>
-  							</div>
-						</div>
-					</div>
-				</div>
+
+<!-- 				<div class="card mx-auto" style="width:45rem; border: none;">
+ -->
+<div class="container-fluid">
+    <div class="card-title"><h5>Nearby Attractions</h5></div>   
+				 
+     <div class="row">
+          <div class="col s12 m4 l4 xl4">
+               <div class="card ">
+              <div class="card-image">
+                  <img id="nearbyImg" src="assets/img/et.jpg">
+                <span class="card-title"></span></div>
+              <div class="card-content">
+          <a href="#" class="btn btn-secondary" id="nearby">This is a link</a>
+        </div>
+              </div>
+        </div>
+        <div class="col s12 m4 l4 xl4">
+               <div class="card ">
+              <div class="card-image">
+                  <img src="assets/img/et.jpg">
+                <span class="card-title"></span></div>
+              <div class="card-content">
+          <a href="#" class="btn white" style="box-shadow: 0 0px 0px 0 rgba(0,0,0,0.14), 0 0px 0px 0px rgba(0,0,0,0.12), 0 0px 0px 0 rgba(0,0,0,0.2);"></a>
+        </div>
+              </div>
+        </div>
+        <div class="col s12 m4 l4 xl4">
+               <div class="card ">
+              <div class="card-image">
+                  <img src="assets/img/et.jpg">
+                <span class="card-title"></span></div>
+              <div class="card-content">
+          <a href="#" class="btn white" style="box-shadow: 0 0px 0px 0 rgba(0,0,0,0.14), 0 0px 0px 0px rgba(0,0,0,0.12), 0 0px 0px 0 rgba(0,0,0,0.2);"></a>
+        </div>
+              </div>
+        </div>
+
+</div>
+
 			</div>
 		</div>
 	</div>
@@ -78,7 +96,7 @@ CloseCon($conn);
 <script>
 
 	$(document).ready(function () {
-    $(".container-fluids").hide();
+    // $(".container-fluids").hide();
 		$("#continent").on('change', function() {
 			var request = $.ajax({
 				url: "test.php",
@@ -124,7 +142,7 @@ CloseCon($conn);
 		});
 
 		$("#attraction").on('change', function() {
-			$selfVal = $(this).val();
+			$selfVal = $(this).val(); 
 			var request = $.ajax({
 				url: "test.php",
 				type: "POST",
@@ -133,12 +151,22 @@ CloseCon($conn);
             request.done(function(msg) {
               console.log(msg);
 				var placeArray = msg.split("|");
-				var placeId = placeArray[0];
-				var placeImg = placeArray[5];
+				var placeId = placeArray[1];
+				var placeImg = placeArray[6];
+        var placeNearby = placeArray[0];
+        var nearbyImg = placeArray[7];
+        var nearbyTitle = placeArray[8];
 				$("#attrImg").attr('src', placeImg);
 				$("#attrName").text($selfVal);
 				$("#attrReadMore").attr('href', 'readmore.php?num=' + placeId);
-				$(".container-fluids").fadeIn(1000);
+        $("#nearby").attr('href', 'readmore.php?num=' + placeNearby);
+        $("#nearbyImg").attr('src', nearbyImg);
+        $(".container-fluids").fadeIn(1000);
+        $("#nearby").text(nearbyTitle);
+
+
+
+
             });
             request.fail(function(jqXHR, textStatus) {
             alert( "Request failed: " + textStatus );

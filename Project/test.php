@@ -99,8 +99,17 @@ if (isset($_POST["attraction"])) {
     	if ($outputId->num_rows > 0) {
 		// output data of each row
 		while($row = $outputId->fetch_assoc()) {
+			if ($row["a_id"] % 2 == 0) {
+				$nearby = $row["a_id"] - 1; 
+			}
+			else {
+				$nearby = $row["a_id"] + 1;
+
+			}
+			array_push($outputArray, $nearby);
             array_push($outputArray, $row["a_id"]);
             $outputNum =  $row["a_id"];
+            
 		}
     }
     
@@ -113,6 +122,21 @@ if (isset($_POST["attraction"])) {
 			array_push($outputArray, $row["img_path"]);
 		}
 	}
+	$nearbyPhoto = $conn->query("SELECT img_path FROM photos WHERE a_id=$nearby ORDER BY p_id desc LIMIT 1");
+	if($nearbyPhoto->num_rows > 0) {
+		   $row = $nearbyPhoto-> fetch_assoc();	
+		   array_push($outputArray, $row["img_path"]);
+		
+	}
+	$nearbyTitle = $conn->query("SELECT title FROM attractions WHERE a_id=$nearby");
+	if($nearbyTitle->num_rows > 0) {
+		   $row = $nearbyTitle-> fetch_assoc();	
+		   array_push($outputArray, $row["title"]);
+		
+	}
+
+	
+
 	CloseCon($conn);
 	echo implode("|", $outputArray);
 }
