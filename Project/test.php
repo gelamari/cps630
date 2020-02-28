@@ -145,7 +145,7 @@ if (isset($_POST["attraction"])) {
 
 
 if (isset($_POST["search"])) {
-    $search = 'Italy';
+    $search = strval($_POST["search"]);
 
 	$conn = OpenCon(); 
 	$outputResults = array();

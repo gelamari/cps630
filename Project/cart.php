@@ -131,7 +131,6 @@
             var agesArray = [];
             var numTravelers = $("#planSelect").val();
             for (i = 0; i < numTravelers; i++) {
-                console.log($("#traveler" + i + "-input").val());
                 agesArray.push($("#traveler" + i + "-input").val());
             }
 
