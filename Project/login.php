@@ -1,5 +1,6 @@
 <html>
 
+
 <head>
   <link rel="stylesheet" href="assets/css/login.css">
   <link href="https://fonts.googleapis.com/css?family=Ubuntu" rel="stylesheet">
@@ -10,12 +11,11 @@
 
 <body>
   <div class="main">
-    <p class="sign" align="center">Sign in</p>
+    <p class="sign" align="center">Admin Sign in</p>
     <form action="" method="post" class="form1">
       <input class="un " type="text" name="username" align="center" placeholder="Username" required>
       <input class="pass" name="password" type="password" align="center" placeholder="Password">
-      <input type="submit" class="submit" align="center" placeholder="Sign in">
-      <p class="forgot" align="center"><a href="#">Forgot Password?</p>
+      <input type="submit" class="submit #1565c0 teal lighten-2" align="center" placeholder="Sign in">
       </form>
                 
     </div>
@@ -55,10 +55,12 @@ if ( ! empty( $_POST ) )
                    exit();
                
             }
+         
 
         }    
         else {
             echo "INVALID USERNAME/PASSWORD Combination!";
+
         }
         $stmt->close();
     }
