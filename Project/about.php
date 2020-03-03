@@ -1,6 +1,7 @@
 <html>
 <?php 
     $title = "About us";
+    $personalcss = "";
     include 'assets/includes/header.php';
 ?>
 <body>

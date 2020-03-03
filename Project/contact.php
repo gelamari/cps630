@@ -1,6 +1,7 @@
 <html>
 <?php 
     $title = "Contact us";
+    $personalcss = "";
     include 'assets/includes/header.php';
 ?>
 <body>

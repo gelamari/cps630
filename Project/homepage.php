@@ -8,7 +8,10 @@ CloseCon($conn);
 <?php 
 	// include 'assets/includes/protect-page.php';
   $title = 'Homepage';
+  $personalcss = '<link rel="stylesheet" type="text/css" href=
+  "assets/css/homepage.css">';
 	include 'assets/includes/header.php';
+
 ?>
 <body>
 	<?php 

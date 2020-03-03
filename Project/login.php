@@ -52,7 +52,6 @@ if ( ! empty( $_POST ) )
                    $_SESSION['username'] = $username;
                    echo 'Success!';
                    header("Location: http://localhost/cps630/Project/dbMaintain.php");
-                   session_destroy();
                    exit();
                
             }

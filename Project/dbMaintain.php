@@ -3,6 +3,7 @@
 <html>
 <?php 
     $title = "Database Maintaining";
+    $personalcss = "";
     include 'assets/includes/header.php';
 ?>
 <body>

@@ -8,6 +8,7 @@
 <html>
 <?php 
     $title = "Shopping Cart";
+    $personalcss = "";
     include 'assets/includes/header.php';
 ?>
 <body class=>
