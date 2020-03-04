@@ -1,23 +1,29 @@
 <?php
+session_start(); 
+if ( isset( $_SESSION['id'] ) ) {
+    $bool = 'yes';
+} 
+else{
+}
 include 'test.php';
 $conn = OpenCon(); 
 $continents = $conn->query("SELECT DISTINCT continent FROM attractions");
 CloseCon($conn);
-?>
-<html>
-<?php 
+
+echo "<html>";
+ 
 	// include 'assets/includes/protect-page.php';
   $title = 'Homepage';
   $personalcss = '<link rel="stylesheet" type="text/css" href=
   "assets/css/homepage.css">';
 	include 'assets/includes/header.php';
 
-?>
-<body>
-	<?php 
+
+echo "<body>";
+	
 		$page = 'home';
 		include 'assets/includes/nav.php';
-	?>
+?>
     <div class="container-fluid">
 	<div class="page-header">
     <h1><b>Plan Your Travel</b></h1></div>

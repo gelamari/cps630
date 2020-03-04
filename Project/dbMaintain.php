@@ -1,16 +1,21 @@
-
-
-<html>
-<?php 
+<?php
+    session_start();
+    if ( isset( $_SESSION['id'] ) ) {
+    $bool = 'yes';
+    } 
+    else { 
+    header("Location: http://localhost/cps630/Project/login.php");
+    echo "try again";
+    }
+    echo "<html>";
     $title = "Database Maintaining";
     $personalcss = "";
     include 'assets/includes/header.php';
-?>
-<body>
-    <?php 
+
+    echo "<body>";
     $page = 'dbMaintain';
     include 'assets/includes/nav.php';
-    ?>
+?>
     <div class="drops">
        <form action="/action_page.php" id="dbMaintain">
         <select id="cars" name="select" form="dbMaintain">
@@ -83,3 +88,4 @@
     </script>
 
 </body>
+</html>

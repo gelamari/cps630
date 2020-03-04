@@ -1,14 +1,17 @@
 <html>
 <?php 
+session_start(); 
+if ( isset( $_SESSION['id'] ) ) {
+    $bool = 'yes';
+} 
+
     $title = "About us";
     $personalcss = "";
     include 'assets/includes/header.php';
-?>
-<body>
-    <?php 
+    echo " <body>";
     $page = 'about';
     include 'assets/includes/nav.php';
-    ?>
+  ?>
 
     <div class="container">
     	<div class="col s12 m7">

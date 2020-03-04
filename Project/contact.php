@@ -1,14 +1,19 @@
 <html>
-<?php 
+<?php  session_start(); 
+if ( isset( $_SESSION['id'] ) ) {
+    $bool = 'yes';
+} 
+
     $title = "Contact us";
     $personalcss = "";
     include 'assets/includes/header.php';
-?>
-<body>
-    <?php 
+
+    echo "<body>";
+
     $page = 'contact';
+
     include 'assets/includes/nav.php';
-    ?>
+?>
     <div class="container-fluid">
     <div class="row">
         <div class="col s12 m4 l4 xl4">
