@@ -21,10 +21,10 @@
 
 ?>
 <style type="text/css">
-  .modal { 
+  #modal2 { 
     max-height: 10%;
     max-width: 25%; 
-    overflow: visible
+    overflow: visible;
   }
   #login > .modal-trigger {
     background-color: #288278;
@@ -43,14 +43,14 @@
             <li class="right"><a href="cart.php"><i class="material-icons right">shopping_cart</i>Cart</a></li>
             <li class="right" id="search"><a class="modal-trigger" href="#modal1" style="float: right">Search</a></li>
             <li id="login" class="right">
-              <a class="log waves-effect waves-light btn modal-trigger" href="#modal1"></a>            
+              <a class="log waves-effect waves-light btn modal-trigger" href="#modal2"></a>            
             <li> 
              
             </li>
       </ul>
 </nav>
 <!-- Log Out Modal -->
-  <div id="modal1" class="modal">
+  <div id="modal2" class="modal ">
     <div class="modal-content">
       <p>Are you sure you want to log out?</p>
       <a href="logout.php" class="modal-close waves-effect waves-light waves-green btn">Logout</a>
@@ -87,6 +87,7 @@
 
       $(document).ready(function(){
             $('.sidenav').sidenav();
+            $('#modal2').modal();
             $('.modal').modal();
 
             $('#search1').on('change', function(){
