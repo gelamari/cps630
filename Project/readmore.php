@@ -1,4 +1,8 @@
 <?php
+session_start(); 
+if ( isset( $_SESSION['id'] ) ) {
+    $bool = 'yes';
+} 
 include 'test.php';
 $num = $_GET['num'];
 $conn = OpenCon(); 
@@ -19,20 +23,17 @@ $res = $conn->query($photos);
 $reviews = "SELECT * FROM reviews WHERE a_id =" . $num;
 $printreview = $conn->query($reviews);
 
+// HEADER
+echo "<html>";
 
-?>
-<html lang="en">
-<?php 
   $title = 'Read More';
   include 'assets/includes/readheader.php';
-?>
-<body>
-  <!-- HEADER -->
-   <?php 
+// NAV
+echo "<body>";
     $page = 'readmore';
     include 'assets/includes/nav.php';
-    ?>
-  <!-- END OF HEADER  -->
+?>
+
 <div class="row">
   <div class="container" id="attrTitle">
  <h3 class="galleryTitle fadeIn" > <?php $col = $onething->fetch_assoc(); echo "{$col['title']}"; $onething->free();
