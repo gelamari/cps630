@@ -14,4 +14,4 @@ Zip Folder as: Team_25_1
 
 # Lab 7 
 
-- [ ] Updated the document in this folder with the document updated in the shared drive
+- [ ] Update the document in this folder with the document updated in the shared drive
