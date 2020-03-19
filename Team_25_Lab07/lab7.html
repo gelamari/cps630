@@ -9,8 +9,12 @@
 <script>
 	window.addEventListener("load", function() {
 		var brow = "";
+      // EDGE
+      if (navigator.userAgent.indexOf("Edge") != -1 ) {
+        brow = "Microsoft Edge";
+      }
   		// CHROME
-  		if (navigator.userAgent.indexOf("Chrome") != -1 ) {
+  		else if (navigator.userAgent.indexOf("Chrome") != -1 ) {
   			brow = "Google Chrome";
   		}
   		// FIREFOX
@@ -21,10 +25,7 @@
   		else if (navigator.userAgent.indexOf("Trident") != -1 ) {
     		brow = "Internet Explorer";
   		}
-  		// EDGE
-  		else if (navigator.userAgent.indexOf("Edge") != -1 ) {
-    		brow = "Miscrosoft Edge";
-  		}
+  		
   		// SAFARI
   		else if (navigator.userAgent.indexOf("Safari") != -1 ) {
   			brow = "Safari";
@@ -33,22 +34,14 @@
   		else if (navigator.userAgent.indexOf("Opera") != -1 ) {
     		brow = "Opera";
   		}
-  		// YANDEX BROWSER
-  		else if (navigator.userAgent.indexOf("Opera") != -1 ) {
-    		brow = "Opera - Yandex Browser";
-  		}
   		// OTHERS
   		else {
-    		brow = "Others";
+    		brow = "Unknown Browser";
   		}
   		document.getElementById("demo").innerHTML =
   			"Trying to detect Browser name! ." + "<br />" + navigator.userAgent + "<br />" + "<br />" +
   			"Browser: " + brow;
 	});
 </script>
-	<!--<script>
-		document.getElementById("demo").innerHTML = 
-			"Trying to detect Browser name! ." + "<br />" + navigator.userAgent + "<br />" + "Browser: " + ;
-	</script>-->
 </body>
 </html> 
