@@ -1,20 +1,26 @@
 <?php
+session_start(); 
+if ( isset( $_SESSION['id'] ) ) {
+    $bool = 'yes';
+} 
+
     include 'test.php';
     $conn = OpenCon();  
     $plans = $conn->query("SELECT * FROM plans");
     CloseCon($conn);
-?>
 
-<html>
-<?php 
+
+echo "<html>";
+ 
     $title = "Shopping Cart";
+    $personalcss = "";
     include 'assets/includes/header.php';
-?>
-<body class=>
-    <?php 
+
+echo "<body>";
+    
     $page = 'cart';
     include 'assets/includes/nav.php';
-    ?>
+?>
     <div class="row">
         <div class="col s12">
             <div class="col s12 m6 plans">

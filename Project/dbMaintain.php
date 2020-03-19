@@ -1,15 +1,35 @@
-
-
-<html>
-<?php 
+<?php
+    session_start();
+    if ( isset( $_SESSION['id'] ) ) {
+    $bool = 'yes';
+    } 
+    else { 
+    header("Location: http://localhost/cps630/Project/login.php");
+    echo "try again";
+    }
+    echo "<html>";
     $title = "Database Maintaining";
+    $personalcss = "";
     include 'assets/includes/header.php';
-?>
-<body>
-    <?php 
+
+    echo "<body>";
     $page = 'dbMaintain';
     include 'assets/includes/nav.php';
-    ?>
+?>
+    <div class="drops">
+       <form action="/action_page.php" id="dbMaintain">
+        <select id="cars" name="select" form="dbMaintain">
+            <option value="Display">SELECT</option>
+            <option value="Display">SELECT ALL ENTRIES</option>
+            <option value="saab" disabled>DELETE</option>
+            <option value="opel" disabled>Modify</option>
+        </select>
+     <input type="submit">
+    </form>
+    </div>
+<br>
+
+
     <div class="row">
 
     <?php
@@ -56,5 +76,16 @@
 
         CloseCon($conn);
     ?>
+    </div>
+
+    <script type="text/javascript">
+         $(document).ready(function(){
+               $('.header').hide();
+
+                 $('.card').hide().fadeIn(1000);
+       });
+
+    </script>
 
 </body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
+
+    <script src="https://unpkg.com/scrollreveal"></script>
+
+    <script type="text/javascript">
+      
+      $(document).ready(function(){
+            $('.scrollspy').scrollSpy();
+            
+            $('.pushpin ul').pushpin({ 
+                top: $('#elegantFont').outerHeight(),
+                
+            });
+
+            $('.scrollspy').scrollSpy();
+
+
+
+      });
+
+    </script>
+
+  <link rel="stylesheet" type="text/css" href="style.css">
+  <title>TEST</title>
+</head>
+<body>
+  <div id = "elegantFont" class="container">
+    <p class="z-depth-4">
+      “Death must be so beautiful. To lie in the soft brown earth, with the grasses waving above one's head, and listen to silence. To have no yesterday, and no tomorrow. To forget time, to forgive life, to be at peace.”
+    </p>
+     </div>
+    <div class="container">
+      <div class="row">
+   <div id="gallery" class="col s12 m9 l10 xl10">
+  <ul class="">
+    <li id="one" class="col photo section scrollspy" data-target="one">
+       <img class="materialboxed" src="img/day.jpg" >
+    </li>
+    <li id="two" class="col photo section scrollspy" data-target="two">
+        <img class="materialboxed"src="img/longeiffel.jpg">           
+    </li>
+    <li id="three" class="col photo section scrollspy" data-taget="three">
+         <img class="materialboxed" src="img/day.jpg">
+    </li>
+    <li id="four" class="col photo section scrollspy" data-target="four">
+         <img class="materialboxed" src="img/longwater.jpg"> 
+    </li>
+    <li  id="five" class="col photo section scrollspy" data-target="five">
+      <img class=" materialboxed" src="img/longnight.jpg"> 
+    </li>
+    <li  id="six" class="col photo section scrollspy" data-target="six" >
+      <img class=" materialboxed" src="img/day.jpg"> 
+    </li>
+    <li id="seven" class="col photo section scrollspy" data-target="seven">
+      <img class=" materialboxed" src="img/parislands.jpg"> 
+    </li>
+    <li id="eight" class="col photo section scrollspy" data-target="eight">
+      <img class=" materialboxed" src="img/longeiffel.jpg"> 
+    </li>
+  </ul>
+  </div>
+  <div class="col hide-on-small-only m3 l2 xl2 pushpin">
+      <ul class="section table-of-contents">
+        <li class=""><a href="#one">One</a></li>
+        <li class=""><a href="#two">Two</a></li>
+        <li class=""><a href="#three">Three</a></li>
+        <li class=""><a href="#four">Four</a></li>
+        <li class=""><a href="#five">Five</a></li>
+        <li class=""><a href="#six">Six</a></li>
+        <li class=""><a href="#seven">Seven</a></li>
+        <li class=""><a href="#eight">Eight</a></li>
+        
+      </ul>
+    
+    </div>
+  </div>
+</div>
+
+<label for="cars">Choose a car:</label>
+
+<select id="cars">
+  <option value="volvo">Volvo</option>
+  <option value="saab">Saab</option>
+  <option value="mercedes">Mercedes</option>
+  <option value="audi">Audi</option>
+</select>
+</body>
+</html>

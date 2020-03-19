@@ -71,9 +71,7 @@ When Medium Tablet Size make CardPanel 4*270*/
 .reviewerName {
   font-family: 'Merriweather';
   font-size: 18px;
- /* font-family: 'Rock Salt', ;
-font-family: 'Montserrat', ;
-font-family: 'Merriweather', ;*/
+
 }
 blockquote {
     -webkit-font-smoothing: antialiased;

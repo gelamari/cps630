@@ -1,6 +1,8 @@
+<!DOCTYPE html>
+<html>
 <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
+    <meta charset="Windows-1252">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- JQuery -->
@@ -36,3 +38,4 @@
   <title><?php echo $title; ?></title>
 </head>
 
+</html>
