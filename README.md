@@ -11,3 +11,7 @@ Todos:
 3.5 [Angela] Add Date and Time in Reviews
 
 Zip Folder as: Team_25_1
+
+# Lab 7 
+
+- [ ] Update the document in this folder with the document updated in the shared drive
