@@ -4,14 +4,9 @@
 #Project 
 
 Todos:
-
-1. Fill "Production" Database
-2. Figure out how to connect the homepage to the corresponding readmore pages 
-3. [Angela] Fix navbar 
-3.5 [Angela] Add Date and Time in Reviews
+- [X] Fill "Production" Database
+- [X] Figure out how to connect the homepage to the corresponding readmore pages 
+- [X] [Angela] Fix navbar 
 
 Zip Folder as: Team_25_1
 
-# Lab 7 
-
-- [ ] Update the document in this folder with the document updated in the shared drive
