@@ -4,7 +4,7 @@
   
   session_start();
   if ( isset ($_SESSION['id'])){
-    $bool = yes;
+    $bool = "yes";
   }
   else {
           header("Location: http://localhost/cps630/Project/login.php");
