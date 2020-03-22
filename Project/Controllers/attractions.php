@@ -4,7 +4,7 @@
  */
 class Attractions
 {  
-   static private $inc = 1;
+   // static private $inc = 1;
     
    private $a_id;
    private $title;
@@ -16,16 +16,16 @@ class Attractions
    private $continent;
     
    // constructor is 
-   function __construct($title, $date_of_creation, $founder_name, $dimensions, $location, $country, $continent) { 
-       $this->title = $title;
-       $this->date_of_creation = $date_of_creation;
-       $this->founder_name = $founder_name;
-       $this->dimensions = $dimensions;  
-       $this->location = $location;
-       $this->country = $country;     
-       $this->continent = $continent;
-       self::$inc++;
-       $this->a_id =  self::$inc;
+   function __construct() { 
+       // $this->title = $title;
+       // $this->date_of_creation = $date_of_creation;
+       // $this->founder_name = $founder_name;
+       // $this->dimensions = $dimensions;  
+       // $this->location = $location;
+       // $this->country = $country;     
+       // $this->continent = $continent;
+       // self::$inc++;
+       // $this->a_id =  self::$inc;
    }    
 
    public function __get($property) {
@@ -39,15 +39,22 @@ class Attractions
         $this->$property = $value;
       }
   
-      return $this;
     }
     
    public function __toString() {
-      $tag = '<table><tr><td><a href="readmore.php?id=' . $this->a_id . '" class="img-responsive">';
-      $tag .= '<img src="' . $this->fileName . '" title="' . $this->title . '" alt="' . $this->title . '" >';   
-      $tag .= '<div class="caption"><div class="blur"></div><div class="caption-text"><h1>' . $this->title . 
-                  '</h1></div></div></a>';
-      return $tag;       
+
+      $tag = '<tr>';
+      $tag .= '<td>'. $this->a_id . '</td>';
+      $tag .= '<td>'. $this->title . '</td>';
+      $tag .= '<td>'. $this->date_of_creation . '</td>';
+      $tag .= '<td>'. $this->founder_name . '</td>';
+      $tag .= '<td>'. $this->dimensions . '</td>';
+      $tag .= '<td>'. $this->location . '</td>';
+      $tag .= '<td>'. $this->country . '</td>';
+      $tag .= '<td>'. $this->continent . '</td>';
+      $tag .= '</tr>';   
+
+      return $tag; 
    }
     
 }

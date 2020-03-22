@@ -53,7 +53,7 @@
   <div id="modal2" class="modal ">
     <div class="modal-content">
       <p>Are you sure you want to log out?</p>
-      <a href="logout.php" class="modal-close waves-effect waves-light waves-green btn">Logout</a>
+      <a href="logout.php" class="center modal-close waves-effect waves-light waves-green btn">Logout</a>
     </div>
   </div>
   <!-- END -->
@@ -64,6 +64,11 @@
       <li id="contact"><a href="contact.php">Contact</a></li>
       <li id="search"><a class="modal-trigger" href="#modal1">Search</a></li>
       <li id="cart" class="rightnav-item"><a href="cart.php"></span>Cart</a></li>
+       <li id="dbMaintain"><a href="dbMaintain.php">dbMaintain</a></li>
+      <li id="login" class="left">
+              <a class="log waves-effect waves-light btn modal-trigger" href="#modal2"></a>            
+            <li> 
+            
   </ul>
 </div>
 

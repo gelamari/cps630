@@ -24,7 +24,7 @@ echo "<body>";
 		$page = 'home';
 		include 'assets/includes/nav.php';
 ?>
-    <div class="container-fluid">
+  <div class="container-fluid">
 	<div class="page-header">
     <h1><b>Plan Your Travel</b></h1></div>
 
