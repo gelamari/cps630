@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <?php
 session_start(); 
 if ( isset( $_SESSION['id'] ) ) {
@@ -191,3 +192,4 @@ echo "<body>";
         return true;
     }
 </script>
+</html>

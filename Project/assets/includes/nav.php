@@ -41,7 +41,7 @@
             <li id="contact" class=><a href="contact.php">Contact</a></li>
             <li id="dbMaintain"><a href="dbMaintain.php">dbMaintain</a></li>
             <li class="right"><a href="cart.php"><i class="material-icons right">shopping_cart</i>Cart</a></li>
-            <li class="right" id="search"><a class="modal-trigger" href="#modal1" style="float: right">Search</a></li>
+            <li class="right" id="search"><a class="modal-trigger" href="#modal1" >Search</a></li>
             <li id="login" class="right">
               <a class="log waves-effect waves-light btn modal-trigger" href="#modal2"></a>            
             <li> 

@@ -1,3 +1,4 @@
+<!DOCTYPE html>
 <html>
 <?php  session_start(); 
 if ( isset( $_SESSION['id'] ) ) {
@@ -16,17 +17,16 @@ if ( isset( $_SESSION['id'] ) ) {
 ?>
     <div class="container-fluid">
     <div class="row">
-        <div class="col s12 m4 l4 xl4">
+        <div class="col col-sm-12 col-m-4 col-lg-4 col-xl=4">
             <div class="card">
-                <div class="card-image">
-                    <img src="assets/img/dog.png" class="cont center">
-                </div>
-                <div class="card-content center">
+                    <img src="assets/img/dog.png" class="card-img-top cont center">
+                <div class="card-body center">
                     <span class="card-title">Nick De Santo</span>
                     <p>
                         Student ID: 500686917<br>
                         Email: ndesanto@ryerson.ca
                     </p>
+
                 </div>
                 <ul class="collapsible">
                     <li>
@@ -44,11 +44,9 @@ if ( isset( $_SESSION['id'] ) ) {
                 </ul>
             </div>
         </div>
-        <div class="col s12 m4 l4 xl4">
+        <div class="col col-sm-12 col-m-4 col-lg-4 col-xl=4">
             <div class="card">
-                <div class="card-image">
-                    <img src="assets/img/dog1.png" class="cont center">
-                </div>
+                    <img src="assets/img/dog1.png" class="card-img-top cont center">
                 <div class="card-content center">
                     <span class="card-title">Angela Gavin</span>
                     <p>
@@ -74,11 +72,9 @@ if ( isset( $_SESSION['id'] ) ) {
                 </ul>
             </div>
         </div>
-        <div class="col s12 m4 l4 xl4">
+        <div class="col col-sm-12 col-m-4 col-lg-4 col-xl=4">
             <div class="card">
-                <div class="card-image">
-                    <img src="assets/img/dog2.png" class="cont center">
-                </div>
+                    <img  src="assets/img/dog2.png" class="card-img-top cont center">
                 <div class="card-content center">
                     <span class="card-title">Alison Der</span>
                     <p>
@@ -114,4 +110,4 @@ if ( isset( $_SESSION['id'] ) ) {
                      $('.collapsible-header').css('font-size', '16px');
        });
    </script>
-<body>
+</body></html>
