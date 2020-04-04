@@ -15,8 +15,10 @@
       <input class="un " type="text" name="username" align="center" placeholder="Username" required>
       <input class="pass" name="password" type="password" align="center" placeholder="Password">
       <input type="submit" class="submit" align="center" placeholder="Sign in">
-      </form>
-                
+    </form>
+    
+    <p align="center"><a class="waves-effect waves-light btn-small" href="register.php">Sign Up</a></p>
+  
     </div>
      
 <?php

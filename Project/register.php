@@ -9,125 +9,150 @@ if ( isset( $_SESSION['id'] ) ) {
     $title = "Registration";
     $personalcss = '<link rel="stylesheet" type="text/css" href="assets/css/register.css">';
     
-    include 'assets/includes/header.php';
+    include 'assets/includes/registerhead.php';
     
     echo "<body ng-app=\"app\" ng-controller=\"MainCtrl as main\">";
     
-    $page = '';
+    $page = ''; 
     include 'assets/includes/nav.php';
   ?>
 <script type="text/javascript">
-	$(document).ready(function(){
-	   $('select').formSelect();
- 		
-	   $('#telephone').keyup(function(){
-    		$(this).val($(this).val().match(/\d+/g).join("").replace(/(\d{3})\-?(\d{3})\-?(\d{4})/,'$1-$2-$3');
-	  	});
+  
 
-
-    
-    
-    $('#postal').keyup(function(){
-        var value = $(this);
-        var regex = /^[A-Za-z]\d[A-Za-z][ -]?\d[A-Za-z]\d$/;
-        var match = regex.exec(value);
-        if (match){
-          if ( (value.indexOf("-") !== -1 || value.indexOf(" ") !== -1 ) && value.length() == 7 ) {
-          return true;
-          } else if ( (value.indexOf("-") == -1 || value.indexOf(" ") == -1 ) && value.length() == 6 ) {
-              return true;
-          }
-        } else {
-            return false;
-        }
-      }):
-	});
-	
+  $(document).ready(function(){
+    $('select').formSelect();
+  });
 </script>
+
 <div class="container">
 <h2 id="signupH">Sign Up</h2>
-<div class="row">
-    <form class="col s12">
-    <!-- First name Last name -->
+  <div class="row">
+    <form class="col s12" name="userForm" novalidate>
+
+    <!-- First Name -->
     <div class="row">
         <div class="input-field col s6">
-          <input  id="first_name" type="text" class="validate">
+          <input  id="first_name" type="text" class="form-control"
+          ng-model="main.fname" ng-minlength="3" ng-maxlength="15" required>
           <label for="first_name">First Name</label>
-        </div>
-        <div class="input-field col s6">
-          <input id="last_name" type="text" class="validate">
+
+
+    </div>
+    <!-- Last Name -->
+    <div class="input-field col s6">
+         <input id="last_name" type="text" class="form-control"
+          ng-model="main.lname" ng-minlength="3" ng-maxlength="15" required>
           <label for="last_name">Last Name</label>
-        </div>
-    </div>
+
+
+
+     </div>
+  </div>
     <!-- Address -->
-    <div class="row">
+  <div class="row">
+    <!-- Street -->
     	<div class="input-field col s12">
-          <input  id="street" type="text" class="validate">
+          <input  id="street" type="text" class="form-control" ng-model="main.street" ng-minlength="8" required>
           <label for="street">Street Address</label>
+
+
+
     	</div>
-    </div>
-    <div class="row">
+  </div>
+  <div class="row">
+    <!-- City -->
         <div class="input-field col s6">
-          <input  id="city" type="text" class="validate">
+          <input  id="city" type="text" class="form-control"
+          ng-model="main.city" ng-minlength="3" required>
           <label for="city">City</label>
         </div>
 
+   <!-- Province -->
         <div class="input-field col s6">
-   			<select id="province">
+   			  <select class="form-control"
+          ng-model="main.province" required>
       			<option id="dis" value="" disabled selected>Province</option>
       			<option value="AB">Alberta</option>
-				<option value="BC">British Columbia</option>
-				<option value="MB">Manitoba</option>
-				<option value="NB">New Brunswick</option>
-				<option value="NL">Newfoundland and Labrador</option>
-				<option value="NS">Nova Scotia</option>
-				<option value="ON">Ontario</option>
-				<option value="PE">Prince Edward Island</option>
-				<option value="QC">Quebec</option>
-				<option value="SK">Saskatchewan</option>
-				<option value="NT">Northwest Territories</option>
-				<option value="NU">Nunavut</option>
-				<option value="YT">Yukon</option>
-    		</select>
-  		</div>
+				    <option value="BC">British Columbia</option>
+    				<option value="MB">Manitoba</option>
+				    <option value="NB">New Brunswick</option>
+				    <option value="NL">Newfoundland and Labrador</option> 
+				    <option value="NS">Nova Scotia</option>
+				    <option value="ON">Ontario</option>
+				    <option value="PE">Prince Edward Island</option>
+				    <option value="QC">Quebec</option>
+				    <option value="SK">Saskatchewan</option>
+				    <option value="NT">Northwest Territories</option>
+				    <option value="NU">Nunavut</option>
+				    <option value="YT">Yukon</option>
+    		  </select>
+
+
+  		  </div>
     </div>
     <div class="row"> 
+    <!-- Postal Code  -->
       <div class="input-field col s6">
-          <input id="postal" type="tel" class="validate">
+          <input id="postal" type="text" class="form-control"
+          ng-model="main.postal" required>
           <label for="postal">Postal Code</label>
-          <span class="helper-text" data-error="Invalid" data-success="Valid">e.g. A1A A2A</span>
-        </div>
+
+      </div>
+
      <!-- Telephone -->
     	<div class="input-field col s6">
-          <input id="telephone" type="tel" class="validate" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" maxlength="10" required>
+          <input id="telephone" type="tel" class="form-control"
+          ng-model="main.telephone" required>
           <label for="telephone">Telephone</label>
-          <!-- USE ANGULAR -->
-             <span class="helper-text" data-error="Invalid" data-success="Valid">e.g. 416-123-1234</span>
 
-        </div>
+      </div>
         
     </div>
+
     <!-- Email  -->
     <div class="row">
         <div class="input-field col s12">
-          <input id="email" type="email" class="validate" autocomplete="username">
+          <input id="email" type="email" name="email" class="form-control" ng-model="main.email" ng-minlength="5" ng-maxlength="20" autocomplete="username" required>
           <label for="email">Email</label>
-          <!-- USE ANGULAR -->
-          <span class="helper-text" data-error="Invalid" data-success="Valid"></span>
+
+
         </div>
     </div>
+
      <!-- Password -->
     <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" class="validate" autocomplete="new-password">
+          <input id="password" type="password" autocomplete="new-password" class="form-control"
+          ng-model="main.password">
           <label for="password">Password</label>
         </div>
     </div>
-    
-    
+
+    <div class="row">
+        <div class="input-field col s12">
+          <input id="rentpassword" type="password" autocomplete="new-password" class="form-control"
+          ng-model="main.password">
+          <label for="password">Re-enter Password</label>
+        </div>
     </div>
+
+
+    <!-- Submit -->
+    <div class="row">
+        <div class="input-field col s12">
+             <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+              <i class="material-icons right">send</i>
+             </button>
+        </div>
+     </div>
+
+    
+    
     </form>
   </div>
 </div>
+
+  
+</script>
 </body>
 </html>
