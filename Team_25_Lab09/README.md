@@ -1,8 +1,8 @@
 ## GROUP 25
 
-Alison Der | 500815229
-Angela Gavin | ​500761490 
-Nick De Santo | ​500686917
+- Alison Der | 500815229
+- Angela Gavin | ​500761490 
+- Nick De Santo | ​500686917
 
 
 
