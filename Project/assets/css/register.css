@@ -1,0 +1,17 @@
+.container {
+	margin-top: 20px;
+}
+#signupH {
+	    -webkit-font-smoothing: antialiased;
+   font-family: FGrotesk,Helvetica Neue,arial,sans-serif;
+   font-style: normal;
+   line-height: 2.0;
+   text-transform: uppercase;
+   letter-spacing: .10em;
+   color: var(--foreground-color);
+}
+select {
+	border: 1px solid #9e9e9e;
+	background-color: transparent;
+	color: #4db6ac;
+}

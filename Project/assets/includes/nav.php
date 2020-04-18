@@ -29,6 +29,7 @@
   #login > .modal-trigger {
     background-color: #288278;
   }
+ 
 
 </style>
 <div>
