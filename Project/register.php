@@ -13,7 +13,7 @@ if ( isset( $_SESSION['id'] ) ) {
     
     echo "<body ng-app=\"app\" ng-controller=\"MainCtrl as main\">";
     
-    $page = ''; 
+    $page = 'register'; 
     include 'assets/includes/nav.php';
   ?>
 <script type="text/javascript">
@@ -131,7 +131,7 @@ if ( isset( $_SESSION['id'] ) ) {
     <div class="row">
         <div class="input-field col s12">
           <input id="rentpassword" type="password" autocomplete="new-password" class="form-control"
-          ng-model="main.password">
+          ng-model="main.rentpassword">
           <label for="password">Re-enter Password</label>
         </div>
     </div>

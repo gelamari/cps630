@@ -25,10 +25,16 @@ echo "<body>";
 		$page = 'home';
 		include 'assets/includes/nav.php';
 ?>
+
+
+
+
   <div class="container-fluid">
 	<div class="page-header">
-    <h1><b>Plan Your Travel</b></h1></div>
-
+    <h1><b>Plan Your Travel</b></h1>
+  </div>
+  <div class="row">
+    <div class="input-field col s12">
 		<select name="continent" id="continent" class="continent">
 			<option>Select a Continent</option>
 			<?php
@@ -42,7 +48,7 @@ echo "<body>";
 		</select>
 		<select id="country"></select>
 		<select id="attraction"></select>
-		   
+	</div></div>
     </div><br>
 	<div class="container-fluids">
 		<div class="row h-50">
