@@ -40,6 +40,7 @@
   </li> 
   <li id="register"><a href="register.php">Sign Up</a></li>
 </ul>
+<!-- Regular Navigation Bar -->
 <nav>
     <div class="nav-wrapper #1565c0 teal lighten-2">
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
@@ -48,14 +49,15 @@
             <li id="about"><a href="about.php">About</a></li>
             <li id="contact" class=><a href="contact.php">Contact</a></li>
             <li id="dbMaintain"><a href="dbMaintain.php">dbMaintain</a></li>
-            <!-- Dropdown Trigger -->
-             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Login / Sign Up<i class="material-icons right">arrow_drop_down</i></a></li>
-
+          
             <li class="right"><a href="cart.php"><i class="material-icons right">shopping_cart</i>Cart</a></li>
             <li class="right" id="search"><a class="modal-trigger" href="#modal1" >Search</a></li>
+              <!-- Dropdown Trigger -->
+             <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Login / Sign Up<i class="material-icons right">arrow_drop_down</i></a></li>
+
             
              
-            </li>
+           
       </ul>
 </nav>
 
@@ -76,8 +78,10 @@
       <li id="cart" class="rightnav-item"><a href="cart.php"></span>Cart</a></li>
        <li id="dbMaintain"><a href="dbMaintain.php">dbMaintain</a></li>
         <!-- Dropdown Trigger -->
-      <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Login / Sign Up<i class="material-icons right">arrow_drop_down</i></a></li>
-    
+       <li id="login"><a href="login.php">Login</a></li>
+       <li id="signup"><a href="register.php">Sign Up</a></li>
+
+
             
   </ul>
 </div>
