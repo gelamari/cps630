@@ -13,9 +13,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.2/animate.min.css">
 
     <!-- ANGULAR -->
-    <script src="//code.angularjs.org/1.4.0/angular.js"></script>
-    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular-messages.js"></script>
-    <script src="assets/js/app.js"></script>
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular-route.js"></script>
 
     <?php echo $personalcss; ?>
 </head>

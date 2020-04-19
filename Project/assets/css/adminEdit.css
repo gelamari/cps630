@@ -1,0 +1,31 @@
+.fixed-action-btn {
+	position: relative;
+	top: 30px;
+	left: 10%;
+}	
+
+.btn-floating {
+	color: white !important;
+}
+.btn-floating:hover {
+	color: black !important;
+}
+
+h2 {
+	 -webkit-font-smoothing: antialiased;
+   font-family: FGrotesk,Helvetica Neue,arial,sans-serif;
+   font-style: normal;
+   line-height: 2.0;
+   text-transform: uppercase;
+   letter-spacing: .10em;
+   color: var(--foreground-color);
+}
+.LEFT {
+	background-color: pink;
+}
+.RIGHT {
+	background-color: lightblue;	
+}
+.btn-floating {
+	margin: 5px;
+}
