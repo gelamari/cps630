@@ -2,7 +2,7 @@
 <html>
 <?php 
     $title = "adminEdit";
-    $personalcss = '<link rel="stylesheet" type="text/css" href="assets/css/ie.css">';
+    $personalcss = '<link rel="stylesheet" type="text/css" href="assets/css/adminEdit.css">';
     include 'assets/includes/registerhead.php';
     echo '<body ng-app="myApp">';
     $page = 'dbMaintain';
@@ -15,6 +15,8 @@
 <script type="text/javascript">
 
       $(document).ready(function(){
+      	    $('.collapsible').collapsible();
+
       	$('.fixed-action-btn').floatingActionButton({
       		direction: 'right',
       		hoverEnabled: 'false'
@@ -28,7 +30,7 @@ app.config(function($routeProvider) {
     templateUrl : "main.htm"
   })
   .when("/del", {
-    templateUrl : "about.php"
+    templateUrl : "delete.html"
   })
   .when("/edit", {
     templateUrl : "edit.html"
@@ -42,7 +44,7 @@ app.config(function($routeProvider) {
 
 <div class="container-fluid">
 <div class="row">
-<div class="col s2 m2 l2">
+<div class="col s2 m2 l2 center-align">
 
   <ul>
     <li><a class="btn-floating btn-large red" href="#!del">DELETE</a></li>

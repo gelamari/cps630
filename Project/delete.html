@@ -23,7 +23,7 @@
 
           case '2':
             $(".formAttr").hide();
-            $(".formAcc").show();
+            $(".formAcc").hide();
             break;
           case '3':
             $(".formAttr").hide();
@@ -43,7 +43,7 @@
 </head>
 <body>
 
-<h2>What do you want to Edit?</h2>
+<h2>What do you want to Delete?</h2>
   <div class="input-field ">
     <select name="table" id="table" onchange="showdiv(this)">
       <option value="" disabled selected>Choose your option</option>
@@ -60,11 +60,9 @@
 <br>
 
 <!-- ADD ATTRACTIONS -->
-<div class="container-fluid  formAttr">
-  <div class="row">
-    <div class="col s6">
-      <h3>  Attraction</h3>
-    <form class="" name="userForm" novalidate>
+<div class="container  formAttr">
+  <h3>New Attraction</h3>
+    <form class="col s12" name="userForm" novalidate>
      <!-- Title -->
       <div class="row">
       <div class="input-field col s12">
@@ -142,17 +140,13 @@
     
     </form>
 </div>
-</div>
-</div>
 
 <!-- ADD USER ACCOUNTS -->
-<div class="container-fluid formAcc">
- <div class="row">
-    <div class="col s6">
-  <h3>User</h3>
+<div class="container formAcc">
+  <h3>New User</h3>
 
   
-    <form class="" name="userForm" novalidate>
+    <form class="col s12" name="userForm" novalidate>
 
     <!-- First Name -->
     <div class="row">
@@ -276,8 +270,7 @@
     
     </form>
 </div>
-</div>
-</div>
+
 </body>
 </html>
 
