@@ -1,5 +1,12 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <style>
+    option[value=""][disabled] {
+      display: none;
+    }
+  </style>
+</head>
 <?php 
 session_start(); 
 if ( isset( $_SESSION['id'] ) ) {
@@ -28,51 +35,50 @@ if ( isset( $_SESSION['id'] ) ) {
 <div class="container">
 <h2 id="signupH">Sign Up</h2>
   <div class="row">
-    <form class="col s12" name="userForm" novalidate>
+    <form action="form-test.php" method="post" class="col s12" name="userForm">
 
     <!-- First Name -->
     <div class="row">
         <div class="input-field col s6">
-          <input  id="first_name" type="text" class="form-control"
-          ng-model="main.fname" ng-minlength="3" ng-maxlength="15" required>
+          <input  id="first_name" type="text" name="first_name" class="form-control"
+          ng-model="main.fname" ng-minlength="3" ng-maxlength="15" required/>
           <label for="first_name">First Name</label>
 
 
     </div>
     <!-- Last Name -->
     <div class="input-field col s6">
-         <input id="last_name" type="text" class="form-control"
-          ng-model="main.lname" ng-minlength="3" ng-maxlength="15" required>
-          <label for="last_name">Last Name</label>
-
-
-
+      <input id="last_name" type="text" name="last_name" class="form-control" ng-model="main.lname" ng-minlength="3" ng-maxlength="15" required/>
+      <label for="last_name">Last Name</label>
+      
+          
      </div>
   </div>
     <!-- Address -->
   <div class="row">
     <!-- Street -->
     	<div class="input-field col s12">
-          <input  id="street" type="text" class="form-control" ng-model="main.street" ng-minlength="8" required>
-          <label for="street">Street Address</label>
+          <input  id="street" type="text" name="street" class="form-control" ng-model="main.street" ng-minlength="8" required/>
+          <label for="street" required/>Street Address</label>
 
 
 
     	</div>
   </div>
+  <!-- 
   <div class="row">
-    <!-- City -->
+    City
         <div class="input-field col s6">
           <input  id="city" type="text" class="form-control"
           ng-model="main.city" ng-minlength="3" required>
           <label for="city">City</label>
         </div>
 
-   <!-- Province -->
+   Province
         <div class="input-field col s6">
-   			  <select class="form-control"
-          ng-model="main.province" required>
+   			  <select class="form-control" required>
       			<option id="dis" value="" disabled selected>Province</option>
+            <option value="" disabled selected>Province</option>
       			<option value="AB">Alberta</option>
 				    <option value="BC">British Columbia</option>
     				<option value="MB">Manitoba</option>
@@ -91,19 +97,20 @@ if ( isset( $_SESSION['id'] ) ) {
 
   		  </div>
     </div>
+  -->
     <div class="row"> 
     <!-- Postal Code  -->
       <div class="input-field col s6">
-          <input id="postal" type="text" class="form-control"
-          ng-model="main.postal" required>
+          <input id="postal" type="text" name="postal" class="form-control"
+          ng-model="main.postal" required/>
           <label for="postal">Postal Code</label>
 
       </div>
 
      <!-- Telephone -->
     	<div class="input-field col s6">
-          <input id="telephone" type="tel" class="form-control"
-          ng-model="main.telephone" required>
+          <input id="telephone" type="tel" name="telephone" class="form-control"
+          ng-model="main.telephone" required/>
           <label for="telephone">Telephone</label>
 
       </div>
@@ -113,7 +120,7 @@ if ( isset( $_SESSION['id'] ) ) {
     <!-- Email  -->
     <div class="row">
         <div class="input-field col s12">
-          <input id="email" type="email" name="email" class="form-control" ng-model="main.email" ng-minlength="5" ng-maxlength="20" autocomplete="username" required>
+          <input id="email" type="email" name="email" class="form-control" ng-model="main.email" ng-minlength="5" ng-maxlength="20" autocomplete="username" required/>
           <label for="email">Email</label>
 
 
@@ -123,8 +130,8 @@ if ( isset( $_SESSION['id'] ) ) {
      <!-- Password -->
     <div class="row">
         <div class="input-field col s12">
-          <input id="password" type="password" autocomplete="new-password" class="form-control"
-          ng-model="main.password">
+          <input id="password" type="password" name="password" autocomplete="new-password" class="form-control"
+          ng-model="main.password" required/>
           <label for="password">Password</label>
         </div>
     </div>
@@ -132,7 +139,7 @@ if ( isset( $_SESSION['id'] ) ) {
     <div class="row">
         <div class="input-field col s12">
           <input id="rentpassword" type="password" autocomplete="new-password" class="form-control"
-          ng-model="main.rentpassword">
+          ng-model="main.rentpassword" required/>
 
           <label for="password">Re-enter Password</label>
         </div>
@@ -142,7 +149,7 @@ if ( isset( $_SESSION['id'] ) ) {
     <!-- Submit -->
     <div class="row">
         <div class="input-field col s12">
-             <button class="btn waves-effect waves-light" type="submit" name="action">Submit
+             <button class="btn waves-effect waves-light" type="submit" name="submit">Submit
               <i class="material-icons right">send</i>
              </button>
         </div>

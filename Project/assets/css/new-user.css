@@ -1,0 +1,70 @@
+html {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Oxygen-Sans,Ubuntu,Cantarell,"Helvetica Neue",sans-serif;
+  font-weight: normal;
+}
+
+form {
+  border: none;
+}
+
+.login {
+  -webkit-font-smoothing: antialiased;
+   font-family: FGrotesk,Helvetica Neue,arial,sans-serif;
+   font-style: normal;
+   line-height: 2.0;
+   text-transform: uppercase;
+   letter-spacing: .20em;
+   color: var(--foreground-color);
+}
+
+input {
+  width: 50%;
+  padding: 12px 20px;
+  margin: 8px 0;
+  display: inline-block;
+  box-sizing: border-box;
+}
+
+.input-field>label {
+  color: #9E9E9E;
+  position: absolute;
+  font-size: 1rem;
+}
+
+button {
+  color: white;
+  padding: 14px 20px;
+  margin: 8px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+}
+
+button:hover {
+  opacity: 0.8;
+}
+
+.container {
+  margin-top: 20px;
+  width: 35%;
+}
+
+placeholder {
+
+}
+
+span.psw {
+  float: right;
+  padding-top: 16px;
+}
+
+/* Change styles for span and cancel button on extra small screens */
+@media screen and (max-width: 300px) {
+  span.psw {
+     display: block;
+     float: none;
+  }
+  .cancelbtn {
+     width: 100%;
+  }
+}

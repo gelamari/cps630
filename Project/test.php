@@ -202,4 +202,57 @@ if (isset($_POST["purchase"])) {
     CloseCon($conn);
 }
 
+/*
+###################
+ REGISTRATION PAGE
+###################
+*/
+
+ if (isset($_POST["submit"])) {
+    $first_name=$_POST["first_name"];
+    $last_name=$_POST["last_name"];
+    $street=$_POST["street"];
+    $postal=$_POST["postal"];
+    $telephone=$_POST["telephone"];
+    $email=$_POST["email"];
+    $password=$_POST["password"];
+
+    $conn = OpenCon();
+
+    $sql = "INSERT INTO signup(fn, ln, stad, pcode, tel, em, pw)
+    VALUES ('$first_name', '$last_name', '$street', '$postal', '$telephone', \"$email\", '$password')";
+
+    if ($conn->query($sql) === TRUE) {
+        echo "New record created successfully";
+    } else {
+        echo "Error: " . $sql . "<br>" . $conn->error;
+    }   
+
+    CloseCon($conn);
+}
+
+/*
+###################
+   NEW USER PAGE
+###################
+*/
+
+if(isset($_POST["nuSubmit"])) {
+	$uname = $_POST["uname"];
+	$psw = $_POST["psw"];
+
+	$conn = OpenCon();
+
+	$sql = "SELECT 1 FROM signup WHERE em = '$uname' AND pw = '$psw'";
+	if($res = $conn->query($sql)) {
+
+		if($res->num_rows > 0) {
+    		echo "user exists";
+		} else {
+			echo "user does not exist";
+		}
+	}
+}
+
+
 ?>

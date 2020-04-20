@@ -15,6 +15,9 @@ ul {
 p.smol {
 	font-size: 13px;
 }
+p.center {
+	text-align: center;
+}
 #continent-af, #continent-am, #continent-as, #continent-eu, #continent-oc {
 	margin-left: 50px;
 }
