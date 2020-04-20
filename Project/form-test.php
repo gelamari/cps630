@@ -19,8 +19,9 @@
 	<body>
 		<div class="container">
     		<div class="col s12 m7">
-    			<h2 class="header" align="center">Thank you for joining, <?php echo $_POST["first_name"]; ?>!</h2>
-              	<p class="center">An email confirmation has been sent to <?php echo $_POST["email"]; ?></p>
+    			<h2 class="header" align="center">Thank you for joining, <?php echo $_POST["first_name"]; ?>!</h2><br>
+              	<p class="center">An email confirmation has been sent to <?php echo $_POST["email"]; ?>. 
+                    <a href="new-user.php">Back to Login</a></p>
             </div>
         </div>
 	</body>

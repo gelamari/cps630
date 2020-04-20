@@ -18,6 +18,13 @@ p.smol {
 p.center {
 	text-align: center;
 }
+select#continent {
+	width: 50%;
+	display: none;
+}
+#hide {
+  display: none;
+}
 #continent-af, #continent-am, #continent-as, #continent-eu, #continent-oc {
 	margin-left: 50px;
 }

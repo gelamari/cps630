@@ -1,54 +1,79 @@
 <!DOCTYPE html>
-<?php
-session_start(); 
+  <?php
+    session_start();
+    if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+      header("location: new-user.php");
+      exit;
+    }
+/*session_start(); 
 if ( isset( $_SESSION['id'] ) ) {
     $bool = 'yes';
-} 
-else{
-}
-include 'test.php';
-$conn = OpenCon(); 
-$continents = $conn->query("SELECT DISTINCT continent FROM attractions");
-CloseCon($conn);
+} */
+    include 'test.php';
+    $conn = OpenCon(); 
+    $continents = $conn->query("SELECT DISTINCT continent FROM attractions");
+    CloseCon($conn);
 
-echo "<html>";
+    echo "<html>";
  
-	// include 'assets/includes/protect-page.php';
-  $title = 'Homepage';
-  $personalcss = '<link rel="stylesheet" type="text/css" href=
-  "assets/css/homepage.css">';
-	include 'assets/includes/header.php';
+	 // include 'assets/includes/protect-page.php';
+    $title = 'Homepage';
+    $personalcss = '<link rel="stylesheet" type="text/css" href="assets/css/homepage.css">';
+    include 'assets/includes/header.php';
 
-
-echo "<body>";
+    echo "<body>";
 	
 		$page = 'home';
 		include 'assets/includes/nav.php';
 ?>
 
-
-
+<script>
+function dontShow(){
+  document.getElementById('hide').style.display ='none';
+}
+function show(){
+  document.getElementById('hide').style.display = 'block';
+}
+</script>
 
   <div class="container-fluid">
-	<div class="page-header">
-    <h1><b>Plan Your Travel</b></h1>
-  </div>
-  <div class="row">
-    <div class="input-field col s12">
-		<select name="continent" id="continent" class="continent">
-			<option>Select a Continent</option>
-			<?php
-				if ($continents->num_rows > 0) {
+    <div class="page-header">
+      <p align="right">Hi, <b><?php echo ($_SESSION['uname']); ?></b></p>
+      <h1><b>Plan Your Travel</b></h1>
+    </div>
+    <p>How many places would you like to view?
+    <label>
+      <input onclick="show();" value="one" class="with-gap" id="oneOp" name="group1" type="radio" />
+      <span>one</span>
+    </label>
+    <label>
+      <input value="two" class="with-gap" id="twoOp" name="group1" type="radio" />
+      <span>two</span>
+    </label>
+    <br>
+    
+    <div class="row"id="row1">
+    <div class="input-field col s12" id="hide">
+
+		  <select name="continent" id="continent" class="one continent">
+			 <option>Select a Continent</option>
+			   <?php
+				  if ($continents->num_rows > 0) {
 					// output data of each row
-					while($row = $continents->fetch_assoc()) {
-						echo "<option value=".$row["continent"].">".$row["continent"]."</option>";
-					}
-				}
-			?>
-		</select>
-		<select id="country"></select>
-		<select id="attraction"></select>
-	</div></div>
+					 while($row = $continents->fetch_assoc()) {
+						  echo "<option value=".$row["continent"].">".$row["continent"]."</option>";
+					 }
+				  }
+			   ?>
+		  </select>
+    </div>
+    </div>
+  </div>
+
+		    <!--<select id="country"></select>
+		    <select id="attraction"></select>
+	     </div>
+    </div>
     </div><br>
 	<div class="container-fluids">
 		<div class="row h-50">
@@ -195,5 +220,5 @@ echo "<body>";
 		});
 	});
 
-</script>
+</script>-->
 </html>

@@ -3,11 +3,9 @@
     <head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
     </head>
-    <?php 
+    <?php ob_start();
+
         session_start(); 
-        if ( isset( $_SESSION['id'] ) ) {
-            $bool = 'yes';
-        } 
         include 'test.php';
         $title = "New User";
         $personalcss = '<link rel="stylesheet" type="text/css" href="assets/css/new-user.css">';
@@ -27,8 +25,8 @@
             <div class="container">
                 <input type="text" placeholder="Enter email" name="uname" required>
                 <input type="password" placeholder="Enter password" name="psw" required>
-        
-                <button class="btn waves-effect waves-light" type="submit" name="nuSubmit">Login</button>
+                <button class="btn waves-effect waves-light" type="submit" name="nuSubmit">Login</button><br>
+                <p>You must first login before viewing any content on this site.<br>Don't have an account? <a href="register.php">Sign up here</a></p>
             </div>
         </form>
     </body>
