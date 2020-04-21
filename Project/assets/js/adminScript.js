@@ -24,9 +24,7 @@ adminApp.config(function($routeProvider) {
   .when("/add", {
     templateUrl : "add.html"
   })
-  .otherwise({
-	    redirectTo: "/"
-	  });
+  
 });
 
 // create the controller and inject Angular's $scope
@@ -49,20 +47,14 @@ $http.post(
 'country': $scope.country,
 'btnName': $scope.btnName,
 'a_id': $scope.a_id,
-'founder_name': $scope.founder_name,
-'date_of_creation': $scope.date_of_creation,
-'dimensions': $scope.dimensions,
-'location': $scope.location
+
 }
 ).success(function(data) {
 alert(data);
 $scope.title = null;
 $scope.continent = null;
 $scope.country = null;
-$scope.founder_name = null;
-$scope.date_of_creation = null;
-$scope.dimensions = null;
-$scope.location = null;
+
 $scope.btnName = "Update";
 $scope.displayData();
 });
@@ -77,15 +69,12 @@ $scope.displayData = function() {
   $scope.names = response.data;
  });
 }
-$scope.updateData = function(a_id, title, continent, country, founder_name, date_of_creation,dimensions, location) {
+$scope.updateData = function(a_id, title, continent, country) {
 $scope.a_id = a_id;
 $scope.title = title;
 $scope.continent = continent;
 $scope.country = country;
 $scope.btnName = "Update";
-$scope.founder_name = founder_name;
-$scope.date_of_creation = date_of_creation;
-$scope.dimensions = dimensions;
-$scope.location = location;
+
 }
 });

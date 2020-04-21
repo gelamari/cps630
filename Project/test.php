@@ -169,6 +169,7 @@ if (isset($_POST["attraction"])) {
 	echo implode("|", $outputArray);
 }
 
+
 /*
 ###################
 	  CART PAGE
