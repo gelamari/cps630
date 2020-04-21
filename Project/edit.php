@@ -69,28 +69,19 @@
 <div class="col s12">
 <label>Title</label><input type="text" title="title" ng-model="title" class="form-control"><br/>  
 </div>
-<div class="col s12">
-<label>Founder</label><input type="text" title="founder_name" ng-model="founder_name" class="form-control"><br/>  
-</div>
-<div class="col s6">
-<label>Date of Creation</label><input type="text" title="date_of_creation" ng-model="date_of_creation" class="form-control"><br/> 
-</div>
-<div class="col s6">
-<label>Dimensions</label><input type="text" title="dimensions" ng-model="dimensions" class="form-control"><br/>  
-</div>
+
+
 <div class="col s6">
 <label>City Location</label><input type="text" title="location" ng-model="location" class="form-control"><br/>  
 </div>
 <div class="col s6">
 <label>Country</label><input type="text" title="country" ng-model="country" class="form-control"><br/>  
 </div>
-<div class="col s6">
+<div class="col s12">
 <label>Continent</label><input type="text" title="continent" ng-model="continent" class="form-control"><br/> 
 </div>
-<div class="col s6">
-<label>LatLong</label><input type="text" title="latlong" ng-model="latlong" class="form-control"><br/> 
-</div>
-<div class="col s6">
+
+<div class="col s12">
 <input type="hidden" ng-model="a_id">  
 <input type="submit" title="btnUpdate" class="btn " ng-click="update_data()" value="{{btnName}}">  
 </div>
@@ -102,35 +93,23 @@
 <tr>
 <th>a_id</th>
 <th>title</th>
-<th>Founder</th>
-<th>Date</th>
-
-<th>Dimensions</th>
-
-<th>continent</th>
+<th>City</th>
 <th>country</th>
-<th>latlong</th>
+<th>continent</th>
 
 <th>Edit</th>
 </tr>
 <tr ng-repeat="x in names">
 <td>{{ x.a_id }}</td>
 <td>{{ x.title }}</td>
-<td>{{ x.founder_name }}</td>
-<td>{{ x.date }}</td>
-
-<td>{{ x.dimensions }}</td>
+<td> {{ x.location }}
 <td>{{ x.country }}</td>
-
-<td>{{ x.location }}</td>
-
 <td>{{ x.continent }}</td>
 
-<td>{{ x.latlong }}</td>
 
 
 <td>
-<button ng-click="updateData(x.a_id, x.title, x.continent, x.country, x.founder_name, x.date,x.dimensions, x.location, x.latlong)" class="btn">Edit</button>
+<button ng-click="updateData(x.a_id, x.title, x.continent, x.country, x.location)" class="btn">Edit</button>
 </td>
 </tr>
 </table>

@@ -5,8 +5,8 @@
     $personalcss = '<link rel="stylesheet" type="text/css" href="assets/css/adminEdit.css"> <script src="assets/js/adminScript.js"></script>';
     include 'assets/includes/registerhead.php';
     echo '<body>';
+    include 'assets/includes/nav.php';
 
-    include 'assets/includes/nav.php'
 
 
 ?>
