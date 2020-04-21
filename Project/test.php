@@ -146,48 +146,18 @@ if (isset($_POST["attraction"])) {
 		   array_push($outputArray, $row["img_path"]);
 		
 	}
-	$nearbyTitle = $conn->query("SELECT title, location, country FROM attractions WHERE a_id=$nearby");
+	$nearbyTitle = $conn->query("SELECT title, location, country, latlong FROM attractions WHERE a_id=$nearby");
 	if($nearbyTitle->num_rows > 0) {
 			$row = $nearbyTitle-> fetch_assoc();	
 			array_push($outputArray, $row["title"]);
 			array_push($outputArray, $row["location"]);
 			array_push($outputArray, $row["country"]);
+			array_push($outputArray, $row["latlong"]);
+
 		
 	}
 
 	CloseCon($conn);
-	echo implode("|", $outputArray);
-}
-
-/*
-######################
-	ADMIN EDIT PAGE
-######################
-*/
-
-	// Attraction selection on the home page
-if (isset($_POST["attract"])) {
-    $attraction = strval($_POST["attract"]);
-
-	$conn = OpenCon(); 
-    $outputArray = array();
-
-	// Gets the information from the selected attraction, also finds the nearby attractions.
-    $outputId = $conn->query("SELECT title, date_of_creation, founder_name, dimensions, location, country, continent FROM attractions WHERE title=\"$attraction\"");
-    	if ($outputId->num_rows > 0) {
-		// output data of each row
-		while($row = $outputId->fetch_assoc()) {
-            array_push($outputArray, $row["title"]);
-            array_push($outputArray, $row["date_of_creation"]);
-            array_push($outputArray, $row["founder_name"]);
-            array_push($outputArray, $row["dimensions"]);
-            array_push($outputArray, $row["location"]);
-            array_push($outputArray, $row["country"]);
-			array_push($outputArray, $row["continent"]);
-            
-		}
-    }
-    CloseCon($conn);
 	echo implode("|", $outputArray);
 }
 
