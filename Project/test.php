@@ -247,11 +247,17 @@ if(isset($_POST["nuSubmit"])) {
 	if($res = $conn->query($sql)) {
 
 		if($res->num_rows > 0) {
-    		echo "user exists";
-		} else {
-			echo "user does not exist";
+			session_start();
+    		$_SESSION['loggedin'] = true;
+            $_SESSION['uname'] = $uname;
+            header("Location: http://localhost/cps630/Project/homepage.php");
+            exit;
+		}
+		else {
+			echo "error";
 		}
 	}
+	CloseCon($conn);
 }
 
 
