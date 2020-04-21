@@ -1,6 +1,14 @@
 <!DOCTYPE html>
 <html ng-app="adminApp">
 <?php 
+  session_start();
+  if ( isset ($_SESSION['id'])){
+    $bool = "yes";
+  }
+  else {
+          header("Location: http://localhost/cps630/Project/login.php");
+
+  }
     $title = "adminEdit";
     $personalcss = '<link rel="stylesheet" type="text/css" href="assets/css/adminEdit.css"> <script src="assets/js/adminScript.js"></script>';
     include 'assets/includes/registerhead.php';
