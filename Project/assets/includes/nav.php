@@ -112,6 +112,11 @@
       $("#<?php echo $page; ?>").addClass('active');
 
       $(document).ready(function(){
+        $(document).on('click', 'table tr', function() {
+                if ($(this).find("td[name='a_id']")) {
+                  window.location.replace("../Project/readmore.php?num=\"" + $(this).find("td[name='a_id']")[0].id + "\"");
+                };
+             });
             $('.sidenav').sidenav();
             $('#modal2').modal();
             $('.modal').modal();
@@ -131,6 +136,9 @@
                             alert( "Request failed: " + textStatus );
                         });
                     });
-             });
+                    
+
+
+});
             
 </script>
