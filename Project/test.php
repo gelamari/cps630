@@ -146,24 +146,20 @@ if (isset($_POST["attraction"])) {
 		   array_push($outputArray, $row["img_path"]);
 		
 	}
-	$nearbyTitle = $conn->query("SELECT title, location, country FROM attractions WHERE a_id=$nearby");
+	$nearbyTitle = $conn->query("SELECT title, location, country, latlong FROM attractions WHERE a_id=$nearby");
 	if($nearbyTitle->num_rows > 0) {
 			$row = $nearbyTitle-> fetch_assoc();	
 			array_push($outputArray, $row["title"]);
 			array_push($outputArray, $row["location"]);
 			array_push($outputArray, $row["country"]);
+			array_push($outputArray, $row["latlong"]);
+
 		
 	}
 
 	CloseCon($conn);
 	echo implode("|", $outputArray);
 }
-
-/*
-######################
-	ADMIN EDIT PAGE
-######################
-*/
 
 
 /*
