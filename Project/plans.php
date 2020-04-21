@@ -28,7 +28,7 @@
 
 <!DOCTYPE html>
 <div class="page-header">
-        <h1><b>Plan Your Travel</b></h1>
+        <h1><b>Create a Plan for your travels</b></h1>
     </div>
   <div class="container-fluid row">
 
@@ -71,7 +71,7 @@
         <div class="container-fluids s6">
             <div class="col h-50">
                 <div class="col-sm-12 h-100 d-table">
-                    <div class="card text-center mx-auto" style="width: 43rem;">
+                    <div id="attr" class="card text-center mx-auto" style="width: 43rem; height: 43rem">
                         <img id="attrImg" class="card-img-top" src="assets/img/et.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h5 id="attrName" class="gelafont card-title"></h5>
@@ -86,7 +86,7 @@
         <div class="container-fluids s6">
             <div class="col h-50">
                 <div class="col-sm-12 h-100 d-table">
-                    <div class="card text-center mx-auto" style="width: 43rem;">
+                    <div id="attr2" class="card text-center mx-auto" style="width: 43rem; height: 43rem">
                         <img id="attrImg2" class="card-img-top" src="assets/img/et.jpg" alt="Card image cap">
                         <div class="card-body">
                             <h5 id="attrName2" class="gelafont card-title"></h5>
@@ -102,9 +102,79 @@
 
 </body>
 
+<div class="container-fluid">
+    <h4> Distance between the two Attractions: <i id="distance"></i></h4>
+    <div><h4> Price of Travel: <i id="price"></i></h4></div>
+</div>
+<div id="map_wrapper">
+    <div id="map_canvas" class="mapping"></div>
+</div>
 
 <script>
 
+    // Google map implementation
+    var latlong = ['',0,0];
+    var latlong2 = ['',0,0];
+    jQuery(function($) {
+        // Asynchronously Load the map API 
+        var script = document.createElement('script');
+        script.src = "//maps.googleapis.com/maps/api/js?key=AIzaSyDQd7v6wsiwu4kvbuehXWm8PFpiBvZDeAI&sensor=false&callback=initialize";
+        document.body.appendChild(script);
+    });
+
+    function initialize() {
+        getDistance(latlong[1],latlong[2],latlong2[1],latlong2[2])
+        var map;
+        var bounds = new google.maps.LatLngBounds();
+        var mapOptions = {
+            mapTypeId: 'roadmap'
+        };
+                        
+        // Display a map on the page
+        map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+        map.setTilt(45);
+            
+        // Multiple Markers
+        var markers = [
+            latlong,
+            latlong2
+        ];
+                            
+            
+        // Display multiple markers on a map
+        var infoWindow = new google.maps.InfoWindow(), marker, i;
+        
+        // Loop through our array of markers & place each one on the map  
+        for( i = 0; i < markers.length; i++ ) {
+            var position = new google.maps.LatLng(markers[i][1], markers[i][2]);
+            bounds.extend(position);
+            marker = new google.maps.Marker({
+                position: position,
+                map: map,
+                title: markers[i][0]
+            });
+            
+            // Allow each marker to have an info window    
+            google.maps.event.addListener(marker, 'click', (function(marker, i) {
+                return function() {
+                    infoWindow.setContent(infoWindowContent[i][0]);
+                    infoWindow.open(map, marker);
+                }
+            })(marker, i));
+
+            // Automatically center the map fitting all markers on the screen
+            map.fitBounds(bounds);
+        }
+
+        // Override our map zoom level once our fitBounds function runs (Make sure it only runs once)
+        var boundsListener = google.maps.event.addListener((map), 'bounds_changed', function(event) {
+            this.setZoom(2);
+            google.maps.event.removeListener(boundsListener);
+        });
+        
+    }
+
+    // attraction containers
 	$(document).ready(function () {
         $('.parallax').parallax();
         $('.materialboxed').materialbox();
@@ -166,19 +236,19 @@
 				var placeArray = msg.split("|");
 				var placeId = placeArray[1];
 				var placeImg = placeArray[6];
-        var placeNearby = placeArray[0];
-        var nearbyImg = placeArray[7];
-        var nearbyTitle = placeArray[8];
-        var city = placeArray[9];
-        var country = placeArray[10];
-				$("#attrImg").attr('src', placeImg);
-				$("#attrName").text($selfVal);
-				$("#attrReadMore").attr('href', 'readmore.php?num=' + placeId);
-                $("#nearby").attr('href', 'readmore.php?num=' + placeNearby);
-                $("#nearbyImg").attr('src', nearbyImg);
+                var placeNearby = placeArray[0];
+                var nearbyImg = placeArray[7];
+                var nearbyTitle = placeArray[8];
+                var city = placeArray[9];
+                var country = placeArray[10];
+                latlong = [country,placeArray[11].split(",")[0],placeArray[11].split(",")[1]];
+
+                $("#attrImg").attr('src', placeImg);
+                document.getElementById("attr").innerHTML='<object style="width:inherit;height:inherit" type="text/html" data="../Project/readmore.php?num=' + placeId + '" ></object>';
                 $(".container-fluids").fadeIn(1000);
-                $("#nearby").text(nearbyTitle);
                 $("#location").text(city + ', ' + country);
+
+                initialize();
             });
             request.fail(function(jqXHR, textStatus) {
             alert( "Request failed: " + textStatus );
@@ -243,98 +313,53 @@
 				var placeArray = msg.split("|");
 				var placeId = placeArray[1];
 
-
-
-
 				var placeImg = placeArray[6];
                 var placeNearby = placeArray[0];
                 var nearbyImg = placeArray[7];
                 var nearbyTitle = placeArray[8];
                 var city = placeArray[9];
                 var country = placeArray[10];
+                latlong2 = [country,placeArray[11].split(",")[0],placeArray[11].split(",")[1]];
+
 				$("#attrImg2").attr('src', placeImg);
-				$("#attrName2").text($selfVal);
-				$("#attrReadMore2").attr('href', 'readmore.php?num=' + placeId);
-                $("#nearby2").attr('href', 'readmore.php?num=' + placeNearby);
-                $("#nearbyImg2").attr('src', nearbyImg);
+                document.getElementById("attr2").innerHTML='<object style="width:inherit;height:inherit" type="text/html" data="../Project/readmore.php?num=' + placeId + '" ></object>';
                 $(".container-fluids").fadeIn(1000);
-                $("#nearby2").text(nearbyTitle);
                 $("#location2").text(city + ', ' + country);
+                initialize();
             });
             request.fail(function(jqXHR, textStatus) {
             alert( "Request failed: " + textStatus );
             });
 		});
-	});
+    });
+    
 
+
+    function Deg2Rad( deg ) {
+       return deg * Math.PI / 180;
+    }
+
+    function getDistance(lat1,lon1,lat2,lon2)
+    {       
+        //Toronto Latitude  43.74 and longitude  -79.37
+        //Vancouver Latitude  49.25 and longitude  -123.12
+        lat1 = Deg2Rad(lat1); 
+        lat2 = Deg2Rad(lat2); 
+        lon1 = Deg2Rad(lon1); 
+        lon2 = Deg2Rad(lon2);
+        latDiff = lat2-lat1;
+        lonDiff = lon2-lon1;
+        var radius = 6371000; // metres
+        var d1 = lat1;
+        var d2 = lat2;
+        var l1 = latDiff;
+        var l2 = lonDiff;
+        var dist = (Math.acos( Math.sin(d1)*Math.sin(d2) + Math.cos(d1)*Math.cos(d2) * Math.cos(l2) ) * radius)/1000;
+        $("#distance").text(dist + " KM");
+        $("#price").text("$" + Math.round(dist*0.23));
+
+
+    }    
 </script>
-
-
-<div id="testo"></div>
-<script type="text/javascript">
-
-            
-      var app = angular.module("myApp", ["ngRoute"]);
-        app.config(function($routeProvider) {
-        $routeProvider
-        });
-
-        app.controller('MainCtrl', function($scope) {
-        $scope.orderByField = 'firstName';
-        $scope.reverseSort = false;
-
-        $scope.data = {
-            employees: [{
-            firstName: 'John',
-            lastName: 'Doe',
-            age: 30
-            },{
-            firstName: 'Frank',
-            lastName: 'Burns',
-            age: 54
-            },{
-            firstName: 'Sue',
-            lastName: 'Banter',
-            age: 21
-            }]
-        };
-        });
-</script>
-
-
-<section ng-app="app" ng-controller="MainCtrl">
-  <span class="label">Ordered By: {{orderByField}}, Reverse Sort: {{reverseSort}}</span><br><br>
-  <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>
-          <a href="#" ng-click="orderByField='firstName'; reverseSort = !reverseSort">
-          First Name <span ng-show="orderByField == 'firstName'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
-          </a>
-        </th>
-        <th>
-          <a href="#" ng-click="orderByField='lastName'; reverseSort = !reverseSort">
-            Last Name <span ng-show="orderByField == 'lastName'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
-          </a>
-        </th>
-        <th>
-          <a href="#" ng-click="orderByField='age'; reverseSort = !reverseSort">
-          Age <span ng-show="orderByField == 'age'"><span ng-show="!reverseSort">^</span><span ng-show="reverseSort">v</span></span>
-          </a>
-        </th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr ng-repeat="emp in data.employees|orderBy:orderByField:reverseSort">
-        <td>{{emp.firstName}}</td>
-        <td>{{emp.lastName}}</td>
-        <td>{{emp.age}}</td>
-      </tr>
-    </tbody>
-  </table>
-</section>
-
-
-
 </body>
 </html>
