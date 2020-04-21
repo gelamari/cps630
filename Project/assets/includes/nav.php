@@ -49,15 +49,12 @@
             <li id="about"><a href="about.php">About</a></li>
             <li id="contact" class=><a href="contact.php">Contact</a></li>
             <li id="dbMaintain"><a href="dbMaintain.php">dbMaintain</a></li>
+            <li id="plans"><a href="plans.php">Plans</a></li>
             <li class="right"><a href="cart.php"><i class="material-icons right">shopping_cart</i>Cart</a></li>
             <li class="right" id="search"><a class="modal-trigger" href="#modal1" >Search</a></li>
               <!-- Dropdown Trigger -->
              <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Login / Sign Up<i class="material-icons right">arrow_drop_down</i></a></li>
-             <li><a href="new-user.php">New User</a></li>
-
-            
-             
-           
+             <li><a href="new-user.php">New User</a></li>   
       </ul>
 </nav>
 
