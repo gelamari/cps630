@@ -29,3 +29,10 @@ h2 {
 .btn-floating {
 	margin: 5px;
 }
+select {
+    display: unset !important;
+}
+
+label {
+	color: #4db6ac ;
+}

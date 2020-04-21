@@ -9,23 +9,22 @@
   
    <script type="text/javascript">
      $(document).ready(function(){
-           $('select').formSelect();
   });
      $(".formAttr").hide();
      $(".formAcc").hide();
 
      function showdiv(ref){
          switch($(ref).val()){
-          case '1':
+          case 'attractions':
             $(".formAcc").hide();
             $(".formAttr").show();
             break;
 
-          case '2':
+          case 'useraccounts':
             $(".formAttr").hide();
             $(".formAcc").hide();
             break;
-          case '3':
+          case 'plans':
             $(".formAttr").hide();
             $(".formAcc").show();
             break;
@@ -48,12 +47,11 @@
     <select name="table" id="table" onchange="showdiv(this)">
       <option value="" disabled selected>Choose your option</option>
       <!-- Print out the photos and reviews as well -->
-      <option id="attr" value="1">Attractions</option>
-      <option id="acc" value="2">User Account</option>
-      <option id="order" value="3">Plans</option>
+      <option id="attr" value="attractions">Attractions</option>
+      <option id="acc" value="useraccounts">User Account</option>
+      <option id="order" value="plans">Plans</option>
 
     </select>
-    <label>Edit Options</label>
   </div>
 
 <br>
@@ -120,7 +118,6 @@
             <option value="America">Oceania</option>
 
           </select>
-          <label>Continent</label>
       </div>
     
     </div>

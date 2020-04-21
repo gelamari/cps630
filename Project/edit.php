@@ -1,5 +1,15 @@
 <!DOCTYPE html>
 <html>
+
+<?php
+session_start(); 
+  if ( isset( $_SESSION['id'] ) ) {
+    $bool = 'yes';
+  } 
+  else{
+  }
+
+?>
 <head>
 </head>
 <body>
@@ -8,24 +18,22 @@
 <head>
   
    <script type="text/javascript">
-     $(document).ready(function(){
-           $('select').formSelect();
-  });
+    
      $(".formAttr").hide();
      $(".formAcc").hide();
 
      function showdiv(ref){
-         switch($(ref).val()){
-          case '1':
+        switch($(ref).val()){
+         case 'attractions':
             $(".formAcc").hide();
-            $(".formAttr").show();
+            $(".formAttr").show()   ;
             break;
 
-          case '2':
+          case 'useraccounts':
             $(".formAttr").hide();
             $(".formAcc").show();
             break;
-          case '3':
+          case 'plans':
             $(".formAttr").hide();
             $(".formAcc").show();
             break;
@@ -33,6 +41,7 @@
           default:
          }
      }
+  
 
   </script>
   <style type="text/css">
@@ -44,106 +53,98 @@
 <body>
 
 <h2>What do you want to Edit?</h2>
-  <div class="input-field ">
+  <div class=" ">
     <select name="table" id="table" onchange="showdiv(this)">
       <option value="" disabled selected>Choose your option</option>
       <!-- Print out the photos and reviews as well -->
-      <option id="attr" value="1">Attractions</option>
-      <option id="acc" value="2">User Account</option>
-      <option id="order" value="3">Plans</option>
+      <option id="attr" value="attractions">Attractions</option>
+      <option id="acc" value="useraccounts">User Account</option>
+      <option id="order" value="plans">Plans</option>
 
     </select>
-    <label>Edit Options</label>
   </div>
-
+ 
 <br>
 <br>
 
 <!-- ADD ATTRACTIONS -->
 <div class="container-fluid  formAttr">
   <div class="row">
-    <div class="col s6">
-      <h3>  Attraction</h3>
-    <form class="" name="userForm" novalidate>
-     <!-- Title -->
-      <div class="row">
-      <div class="input-field col s12">
-          <input  id="title" type="text" class="form-control" ng-model="main.title" ng-minlength="8" required>
-          <label for="title">Title</label>
-      </div>
-      </div>
-      <!-- Founder -->
-      <div class="row">
-      <div class="input-field col s12">
-          <input  id="founder" type="text" class="form-control" ng-model="main.founder" ng-minlength="8" required>
-          <label for="founder">Founder</label>
-      </div>
-      </div>
-    <!-- Date of Creation -->
-    <div class="row">
-        <div class="input-field col s6">
-          <input  id="date" type="text" class="form-control"
-          ng-model="main.date" ng-minlength="3" ng-maxlength="15" required>
-          <label for="date">Date of Creation</label>
+   
+    <!-- LEFT HALF  -->
+<div ng-app="adminApp" ng-controller="editController" ng-init="displayData()"> 
+
+<div class="col s4"> 
+<div class="col s12">
+<label>Title</label><input type="text" title="title" ng-model="title" class="form-control"><br/>  
+</div>
+<div class="col s12">
+<label>Founder</label><input type="text" title="founder_name" ng-model="founder_name" class="form-control"><br/>  
+</div>
+<div class="col s6">
+<label>Date of Creation</label><input type="text" title="date_of_creation" ng-model="date_of_creation" class="form-control"><br/> 
+</div>
+<div class="col s6">
+<label>Dimensions</label><input type="text" title="dimensions" ng-model="dimensions" class="form-control"><br/>  
+</div>
+<div class="col s6">
+<label>City Location</label><input type="text" title="location" ng-model="location" class="form-control"><br/>  
+</div>
+<div class="col s6">
+<label>Country</label><input type="text" title="country" ng-model="country" class="form-control"><br/>  
+</div>
+<div class="col s12">
+<label>Continent</label><input type="text" title="continent" ng-model="continent" class="form-control"><br/> 
+</div>
+<div class="col s6">
+<input type="hidden" ng-model="a_id">  
+<input type="submit" title="btnUpdate" class="btn " ng-click="update_data()" value="{{btnName}}">  
+</div>
+</div>
+<!-- END OF LEFT HALF -->
+<!-- START OF RIGHT HALF -->
+<div class="col s8">
+<table class="striped">
+<tr>
+<th>a_id</th>
+<th>title</th>
+<th>Founder</th>
+<th>Date</th>
+
+<th>Dimensions</th>
+
+<th>continent</th>
+<th>country</th>
+<th>Edit</th>
+</tr>
+<tr ng-repeat="x in names">
+<td>{{ x.a_id }}</td>
+<td>{{ x.title }}</td>
+<td>{{ x.founder_name }}</td>
+<td>{{ x.date }}</td>
+
+<td>{{ x.dimensions }}</td>
+<td>{{ x.country }}</td>
+
+<td>{{ x.location }}</td>
+
+<td>{{ x.continent }}</td>
 
 
-        </div>
-        <!-- Dimensions -->
-        <div class="input-field col s6">
-         <input id="dimensions" type="text" class="form-control"
-          ng-model="main.dimensions" ng-minlength="3" ng-maxlength="15" required>
-          <label for="dimensions">Dimensions</label>
-        </div>
-    </div>
-    <!-- City Location-->
-    <div class="row">
-        <div class="input-field col s6">
-          <input  id="location" type="text" class="form-control"
-          ng-model="main.location" ng-minlength="3" ng-maxlength="15" required>
-          <label for="location">City Location</label>
+<td>
+<button ng-click="updateData(x.a_id, x.title, x.continent, x.country, x.founder_name, x.date,x.dimensions, x.location)" class="btn">Edit</button>
+</td>
+</tr>
+</table>
+</div>
 
 
-        </div>
-        <!-- Country -->
-        <div class="input-field col s6">
-         <input id="country" type="text" class="form-control"
-          ng-model="main.country" ng-minlength="3" ng-maxlength="15" required>
-          <label for="country">Country</label>
-        </div>
-    </div>
-    <div class="row">
-      <div class="input-field col s12">
-         <select class="continent" name="continent">
-            <option value="" disabled selected>Choose your option</option>
-            <option value="America">Europe</option>
-            <option value="Asia">Asia</option>
-            <option value="Africa">Africa</option>
-            <option value="America">America</option>
-            <option value="America">Oceania</option>
-
-          </select>
-          <label>Continent</label>
-      </div>
-    
-    </div>
-  
-
-
-    <!-- Submit -->
-    <div class="row">
-        <div class="input-field col s12">
-             <button class="btn waves-effect waves-light" type="submit" name="action">Submit
-              <i class="material-icons right">send</i>
-             </button>
-        </div>
-     </div>
-
-    
-    
-    </form>
 </div>
 </div>
 </div>
+
+
+
 
 <!-- ADD USER ACCOUNTS -->
 <div class="container-fluid formAcc">
@@ -278,8 +279,7 @@
 </div>
 </div>
 </div>
-</body>
-</html>
 
 </body>
+
 </html>

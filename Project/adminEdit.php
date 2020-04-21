@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="adminApp">
 <?php 
     $title = "adminEdit";
-    $personalcss = '<link rel="stylesheet" type="text/css" href="assets/css/adminEdit.css">';
+    $personalcss = '<link rel="stylesheet" type="text/css" href="assets/css/adminEdit.css"> <script src="assets/js/adminScript.js"></script>';
     include 'assets/includes/registerhead.php';
-    echo '<body ng-app="myApp">';
+    echo '<body>';
     $page = 'dbMaintain';
     include 'assets/includes/nav.php';
 
@@ -12,39 +12,11 @@
 
 
 ?>
-<script type="text/javascript">
-
-      $(document).ready(function(){
-      	    $('.collapsible').collapsible();
-
-      	$('.fixed-action-btn').floatingActionButton({
-      		direction: 'right',
-      		hoverEnabled: 'false'
-      	});
-	});
-
-      var app = angular.module("myApp", ["ngRoute"]);
-app.config(function($routeProvider) {
-  $routeProvider
-  .when("/", {
-    templateUrl : "main.htm"
-  })
-  .when("/del", {
-    templateUrl : "delete.html"
-  })
-  .when("/edit", {
-    templateUrl : "edit.html"
-  })
-  .when("/add", {
-    templateUrl : "add.html"
-  });
-});
-</script>
 
 
 <div class="container-fluid">
 <div class="row">
-<div class="col s2 m2 l2 center-align">
+<div class="col s1 m1 l1 center-align">
 
   <ul>
     <li><a class="btn-floating btn-large red" href="#!del">DELETE</a></li>
@@ -55,7 +27,7 @@ app.config(function($routeProvider) {
 </div>
 
 
-<div class="col s10 m10 l10">
+<div class="col s11 m11 l11">
 <div ng-view></div>
 </div>
 </div>	
