@@ -26,7 +26,7 @@
             <li id="home"><a href="homepage.php">Home</a></li>
             <li id="about"><a href="about.php">About</a></li>
             <li id="contact" class=><a href="contact.php">Contact</a></li>
-            <li id="dbMaintain"><a href="dbMaintain.php">dbMaintain</a></li>
+            <li id="dbMaintain"><a href="adminEdit.php">adminEdit</a></li>
             <li id="plans"><a href="plans.php">Plans</a></li>
             <li class="right"><a href="cart.php"><i class="material-icons right">shopping_cart</i>Cart</a></li>
             <li class="right" id="search"><a class="modal-trigger" href="#modal1" >Search</a></li>
@@ -54,7 +54,7 @@
       <li id="contact"><a href="contact.php">Contact</a></li>
       <li id="search"><a class="modal-trigger" href="#modal1">Search</a></li>
       <li id="cart" class="rightnav-item"><a href="cart.php"></span>Cart</a></li>
-       <li id="dbMaintain"><a href="dbMaintain.php">dbMaintain</a></li>
+       <li id="dbMaintain"><a href="adminEdit.php">adminEdit</a></li>
         <!-- Dropdown Trigger -->
        <li id="login"><a href="login.php">Admin Login</a></li>
        <li id="signup"><a href="register.php">Sign Up</a></li>
