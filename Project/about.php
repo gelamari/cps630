@@ -1,10 +1,15 @@
 <!DOCTYPE html>
 <html>
-<?php 
+<?php
+session_start();
+if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
+    header("location: new-user.php");
+    exit;
+}
+/* 
 session_start(); 
 if ( isset( $_SESSION['id'] ) ) {
-    $bool = 'yes';
-} 
+    $bool = 'yes';*/
 
     $title = "About us";
     $personalcss = "";
