@@ -1,25 +1,3 @@
-<?php 
-  echo "
-   <script type=\"text/javascript\">
-            $(document).ready(function(){
-              ";
-  if ( isset($bool) && $bool == 'yes' ) {
-  echo "
-        $('.log').text(\"Logout\");
-     
-  });";
-  }
-  else {
-     echo "
-        $('.log').prop(\"href\", \"login.php\");
-        $('.log').text(\"Admin Login\");
-     
-  });";
-  }
-  echo "</script>";
-
-
-?>
 <style type="text/css">
   #modal2 { 
     max-height: 10%;
@@ -54,14 +32,7 @@
               <!-- Dropdown Trigger -->
              <li><a class="dropdown-trigger" href="#!" data-target="dropdown1">Admin / Sign Up<i class="material-icons right">arrow_drop_down</i></a></li>
              
-             <!--<li><a href="logout.php">Logout</a></li>-->
-             <?php    //echo $_SESSION["staffname"];
-        if(isset($_SESSION['loggedin']) && $_SESSION['loggedin'] != NULL)//$_SESSION
-        {        ?><li><a href="logout.php" class="pull-right">Logout</a></li>
-        <?php } else { ?> <li><a href="new-user.php">Login</a></li>
-        <?php } ?>
-
-            
+    
              
            
       </ul>

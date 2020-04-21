@@ -1,15 +1,6 @@
 <!DOCTYPE html>
 <html>
 
-<?php
-session_start(); 
-  if ( isset( $_SESSION['id'] ) ) {
-    $bool = 'yes';
-  } 
-  else{
-  }
-
-?>
 <head>
 </head>
 <body>
@@ -26,7 +17,7 @@ session_start();
         switch($(ref).val()){
          case 'attractions':
             $(".formAcc").hide();
-            $(".formAttr").show()   ;
+            $(".formAttr").show();
             break;
 
           case 'useraccounts':
@@ -93,8 +84,11 @@ session_start();
 <div class="col s6">
 <label>Country</label><input type="text" title="country" ng-model="country" class="form-control"><br/>  
 </div>
-<div class="col s12">
+<div class="col s6">
 <label>Continent</label><input type="text" title="continent" ng-model="continent" class="form-control"><br/> 
+</div>
+<div class="col s6">
+<label>LatLong</label><input type="text" title="latlong" ng-model="latlong" class="form-control"><br/> 
 </div>
 <div class="col s6">
 <input type="hidden" ng-model="a_id">  
@@ -115,6 +109,8 @@ session_start();
 
 <th>continent</th>
 <th>country</th>
+<th>latlong</th>
+
 <th>Edit</th>
 </tr>
 <tr ng-repeat="x in names">
@@ -130,9 +126,11 @@ session_start();
 
 <td>{{ x.continent }}</td>
 
+<td>{{ x.latlong }}</td>
+
 
 <td>
-<button ng-click="updateData(x.a_id, x.title, x.continent, x.country, x.founder_name, x.date,x.dimensions, x.location)" class="btn">Edit</button>
+<button ng-click="updateData(x.a_id, x.title, x.continent, x.country, x.founder_name, x.date,x.dimensions, x.location, x.latlong)" class="btn">Edit</button>
 </td>
 </tr>
 </table>
