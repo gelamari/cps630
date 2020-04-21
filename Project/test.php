@@ -30,7 +30,7 @@ if (isset($_POST["search"])) {
 	$conn = OpenCon(); 
 	$outputResults = array();
 	
-	$queryAttractions = "SELECT * FROM `attractions` WHERE (CONVERT(`a_id` USING utf8) LIKE '%$search%' OR CONVERT(`title` USING utf8) LIKE '%$search%' OR CONVERT(`date_of_creation` USING utf8) LIKE '%$search%' OR CONVERT(`founder_name` USING utf8) LIKE '%$search%' OR CONVERT(`dimensions` USING utf8) LIKE '%$search%' OR CONVERT(`location` USING utf8) LIKE '%$search%' OR CONVERT(`country` USING utf8) LIKE '%$search%' OR CONVERT(`continent` USING utf8) LIKE '%$search%')";
+	$queryAttractions = "SELECT * FROM `attractions` WHERE (CONVERT(`a_id` USING utf8) LIKE '%$search%' OR CONVERT(`title` USING utf8) LIKE '%$search%' OR CONVERT(`date_of_creation` USING utf8) LIKE '%$search%' OR CONVERT(`founder_name` USING utf8) LIKE '%$search%' OR CONVERT(`dimensions` USING utf8) LIKE '%$search%' OR CONVERT(`location` USING utf8) LIKE '%$search%' OR CONVERT(`country` USING utf8) LIKE '%$search%' OR CONVERT(`continent` USING utf8) LIKE '%$search%' OR CONVERT(`latlong` USING utf8) LIKE '%$search%')";
 	$queryOrders = "SELECT *  FROM `orders` WHERE (CONVERT(`id` USING utf8) LIKE'%$search%' OR CONVERT(`plan_id` USING utf8) LIKE'%$search%' OR CONVERT(`num_travelers` USING utf8) LIKE'%$search%' OR CONVERT(`ages` USING utf8) LIKE'%$search%' OR CONVERT(`total` USING utf8) LIKE'%$search%')";
 	$queryPhotos = "SELECT *  FROM `photos` WHERE (CONVERT(`p_id` USING utf8) LIKE'%$search%' OR CONVERT(`img_path` USING utf8) LIKE'%$search%' OR CONVERT(`a_id` USING utf8) LIKE'%$search%')";
 	$queryPlans = "SELECT *  FROM `plans` WHERE (CONVERT(`id` USING utf8) LIKE'%$search%' OR CONVERT(`start_date` USING utf8) LIKE'%$search%' OR CONVERT(`duration` USING utf8) LIKE'%$search%' OR CONVERT(`fare` USING utf8) LIKE'%$search%' OR CONVERT(`total_price` USING utf8) LIKE'%$search%' OR CONVERT(`purchased` USING utf8) LIKE'%$search%' OR CONVERT(`map_link` USING utf8) LIKE'%$search%' OR CONVERT(`description` USING utf8) LIKE'%$search%')";
@@ -53,9 +53,17 @@ if (isset($_POST["search"])) {
 					}
 					echo '</tr>';
 				}
-				echo '<tr>';
 				foreach($row as $key => $field) {
-					echo '<td style="overflow: hidden; max-width: 300px;">' . htmlspecialchars($field) . '</td>';
+					if ($key == "a_id") {
+						 $idField = htmlspecialchars($field);
+						 $nameField = "a_id" ;
+
+						} else {
+							$idField = "";
+							$nameField = "" ;
+						}
+
+					echo '<td id="' . $idField . '" name="' . $nameField . '" style="overflow: hidden; max-width: 300px;">' . htmlspecialchars($field) . '</td>';
 				}
 				echo '</tr>';
 			}
